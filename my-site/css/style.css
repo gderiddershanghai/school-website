@@ -67,9 +67,15 @@ a{color:inherit;text-decoration:none}
 
 
 
-.hero h1 {
-  color: #fff;            /* pure white text */
-  text-shadow: 0 2px 4px rgba(0,0,0,.25); /* optional: improves legibility on bright photos */
+/* base heading style */
+.hero h1{
+  color:#fff;                       /* white for the rest of the text */
+  text-shadow:0 2px 4px rgba(0,0,0,.25);
+}
+
+/* override just the “YOU” span */
+.hero h1 .accent{                   /* note the space ⇒ descendant selector */
+  color:var(--accent);              /* #074E78 */
 }
 
 
