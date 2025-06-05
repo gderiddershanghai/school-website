@@ -162,3 +162,11 @@ footer{
   margin-block:3rem;
   padding:0 1rem;                    /* ← NEW */
 }
+
+/* keeps every content section comfortably centred */
+#story-page main,
+#story-page .section{
+  max-width:64rem;      /* ≈1024 px – adjust to taste */
+  margin-inline:auto;   /* centres the block */
+  padding-inline:1rem;  /* side-padding on phones */
+}
