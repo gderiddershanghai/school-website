@@ -1,0 +1,306 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Our Story | Flying English Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+  <!-- ── story-page-only CSS (scoped) ──────────────────────────── -->
+  <style>
+    #story-page{
+      --hero-img:url('images/story-banner.webp');   /* swap when ready */
+    }
+    /* hero */
+    #story-page .hero{
+      min-height:60vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      background:var(--hero-img) center/cover no-repeat;
+    }
+    #story-page .hero h1{color:#fff;font-size:clamp(2.5rem,6vw,4rem);margin:0;}
+
+    /* timeline */
+    .timeline{
+      list-style:none;
+      margin:0;
+      padding:0 0 0 1rem;
+      border-left:4px solid var(--accent);
+    }
+    .timeline li{
+      margin:2rem 0;
+      position:relative;
+    }
+    .timeline time{
+      font-weight:700;
+      color:var(--accent);
+    }
+    .timeline li::before{
+      content:'';
+      position:absolute;
+      left:-0.83rem;                /* centers dot on the line */
+      top:.25rem;
+      width:.75rem;height:.75rem;
+      background:var(--accent);
+      border-radius:50%;
+    }
+
+    /* pull quote */
+    .pull-quote{
+      border-left:4px solid var(--accent);
+      padding-left:1rem;
+      font-style:italic;
+      margin:2rem 0;
+    }
+
+    /* contact card */
+    .contact-card{
+      display:grid;
+      gap:var(--gap);
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+    .contact-card a{word-break:break-all;}
+
+    @media(max-width:768px){
+      .timeline{padding-left:.5rem;}
+      .timeline li::before{left:-0.58rem;}
+    }
+
+      ul {                       /* or target a narrower selector if you prefer */
+    /* list-style-position: outside; */
+    padding-left: 1.25rem;   /* tweak to taste */
+  }
+
+      /* ⇢ extra indent for the text, dot re-aligned */
+    .timeline li{               /* NEW */
+      padding-left:2.5rem;
+    }
+    .timeline li::before{       /* ADJUST */
+      left:1.25rem;               /* was −0.83 rem */
+    }
+
+        /* ⇢ applies only to the big in-content photos, not logos/icons */
+    #story-page main img[loading="lazy"]{
+      display:block;
+      width:80%;
+      max-width:800px;   /* safety cap – optional */
+      margin: auto;
+      height:auto;
+
+    }
+    /* ⇢ reveals a caption overlay on hover / keyboard focus */
+    /* .img-wrap {position:relative; display:inline-block;}
+    .img-wrap::after{
+      content:attr(data-caption);
+      position:absolute; inset:0 0 0 0;           /* sticks to the bottom */
+      /* background:rgba(7,78,120,.475);
+      
+      color:#fff; font-size:1.0875rem; line-height:1.3;
+      padding:.5rem .75rem;
+      opacity:0; transition:opacity .3s ease-in-out;
+      pointer-events:none;                         /* keeps the image clickable */
+    /* } */
+    /* .img-wrap:hover::after,
+    .img-wrap:focus-within::after{opacity:1;} */ */ */
+
+
+
+    
+  </style>
+</head>
+
+<body id="story-page">
+  <!-- <a class="skip-link" href="#main">Skip to content</a> -->
+
+  <!-- ===== Header (unchanged) ===== -->
+  <header>
+    <div class="nav-wrap">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="Flying English Center logo" width="120" height="48"></a>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false">☰<span class="visually-hidden">Menu</span></button>
+
+      <nav id="primary-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html" aria-current="page">Our Story</a></li>
+          <li><a href="jobs.html">Join the Team</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" role="banner">
+    <h1>How Flying English Took Flight</h1>
+  </section>
+
+  <main id="main">
+    <!-- origin story -->
+    <section class="section">
+      <p>Flying English is a boutique language school in downtown Shanghai founded in 2015 by two mothers—a former chemical-engineer-turned-entrepreneur and a business consultant—who were disappointed with existing after-school options. Partnering with an education consultant, they set out to raise the bar for young learners.</p>
+
+      <div class="pull-quote">
+        “I received offers from many schools when I first got to Shanghai, but I’m incredibly happy I chose Flying English. Everyone here truly cares about making a difference. - Tina”
+      </div>
+
+      <!-- <img src="images/team5.jpg" alt="The team in 2018" class="fade" loading="lazy" > -->
+
+
+    <div class="img-wrap" data-caption="The team in 2018">
+
+      <img src="images/team5.jpg" alt="The team in 2018"
+          class="fade" loading="lazy" >
+                    <p>The team in 2018 - After a Laser Tag session.</p>
+
+    </div>
+
+
+
+
+      <!-- timeline -->
+      <h2>Milestones</h2>
+      <ol class="timeline fade">
+        <li><time datetime=" 2014">2014</time> &nbsp; Doors open with 2 classrooms and 12 students.</li>
+ 
+        <li><time datetime=" 2017">2017</time> &nbsp; Moved to current Huangpu HQ; </li>
+        <li><time datetime=" 2019">2019</time> &nbsp; Passed <strong>500</strong> enrolment; Opened a second campus - Total Staff of 40</li>
+        <li><time datetime=" 2020-2022">2020</time> &nbsp; Covid hit - borders closed & closed second campus :( </li>
+
+        <li><time datetime=" 2025">2025</time> &nbsp; Looking for <strong>you</strong> to join our team!</li>
+
+      </ol>
+    </section>
+
+    <!-- mission + achievements -->
+    <section class="section card fade">
+      <div class="grid-2">
+        <div>
+          <h2>Our Mission</h2>
+          <p>Remain a boutique centre that delivers high-quality English education to young learners while nurturing creativity, confidence, and curiosity.</p>
+        </div>
+        <div>
+          <h2>What We’ve Achieved</h2>
+          <ul>
+
+          <li>Taught 1,000+ young learners since 2015</li>
+          <li>Built a robust ESL & Language-Arts curriculum</li>
+          <li>Ran seasonal STEM and Arts & Crafts camps</li>
+          <li>Survived a global pandemic</li>
+          <li>Fostered a fun, close-knit team that keeps teachers long term</li>
+
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- second image -->
+    <section class="img-wrap" data-caption="Bali Team Building Trip">
+      <!-- <p>In 2024, we took our team to Bali for a week of fun and bonding.</p> -->
+      <img src="images/team_bali1.jpg" alt="Bali Team Building Trip" loading="lazy">
+          <p>In 2024, we took our team to Bali for a week of fun and bonding.</p>
+
+    </section>
+
+
+
+
+
+    <!-- contact -->
+    <section class="section">
+      <h2>Call or Visit</h2>
+      <div class="contact-card card">
+        <div>
+          <h3>Our Location</h3>
+          <p>Building&nbsp;1, 1236 Qu Xi Road<br>Huangpu District<br>Shanghai&nbsp;200011&nbsp;CN</p>
+          <p><strong>Hours</strong><br>
+             Mon – Fri&nbsp; 8 AM – 8 PM<br>
+             Sat&nbsp;– Sun&nbsp; 9 AM – 8 PM</p>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <address>
+            <strong>Anna Shen</strong> (EN/中文)<br>
+            <a href="tel:+8613641763672">+86&nbsp;136&nbsp;4176&nbsp;3672</a><br><br>
+
+            <strong>Vera You</strong> (EN/中文)<br>
+            <a href="tel:+8617701811961">+86&nbsp;177&nbsp;0181&nbsp;1961</a><br><br>
+
+            <a href="mailto:flyingenglish@163.com">flyingenglish@163.com</a>
+          </address>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA banner -->
+    <section class="section cta-banner fade">
+      <h2 style="margin-top:0">Fancy Teaching Here?</h2>
+      <p style="max-width:40ch;margin:0 auto 2rem">We’re always on the lookout for passionate educators. Check our current openings and join the family.</p>
+      <a href="jobs.html" class="btn">View Jobs</a>
+    </section>
+  </main>
+
+  <!-- ===== Footer (unchanged) ===== -->
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025 Flying English Center</p>
+  
+      <div class="footer-links">
+        <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
+          <img src="images/Instagram_logo.svg" alt="Instagram" width="24" height="24" style="vertical-align:middle">
+        </a>
+  
+        <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener">
+          <img src="images/LinkedIn_logo.svg"  alt="LinkedIn"  width="24" height="24" style="vertical-align:middle">
+        </a>
+      </div>
+  
+      <a href="index.html"><img src="images/logo.png" alt="" width="120" height="48"></a>
+    </div>
+  </footer>
+  
+
+  <!-- ===== Light-box container reused from Jobs (optional) ===== -->
+  <div id="lightbox">
+    <button class="lb-close" aria-label="Close">×</button>
+    <img alt="">
+  </div>
+
+  <!-- page-scoped JS: burger + fade-in + light-box (same as jobs) -->
+  <script>
+    /* burger */
+    (function(){
+      const b=document.querySelector('.hamburger'),u=document.querySelector('#primary-nav ul');
+      if(b) b.addEventListener('click',()=>{const e=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!e);u.setAttribute('aria-expanded',!e);});
+    })();
+    /* fade */
+    (function(){
+      const f=document.querySelectorAll('#story-page .fade');
+      if(!('IntersectionObserver'in window)){f.forEach(el=>el.classList.add('in'));return;}
+      const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:0.2});
+      f.forEach(el=>o.observe(el));
+    })();
+    /* optional light-box reuse (delete if not needed here) */
+    (function(){
+      const lb=document.getElementById('lightbox');
+      if(!lb) return;
+      const img=lb.querySelector('img'),close=lb.querySelector('.lb-close');
+      const open=(src,alt)=>{img.src=src;img.alt=alt;lb.classList.add('open');close.focus();};
+      const shut=()=>{lb.classList.remove('open');img.src='';};
+      document.querySelectorAll('#story-page img[loading="lazy"]').forEach(i=>{
+        i.tabIndex=0;
+        i.addEventListener('click',()=>open(i.src,i.alt));
+        i.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i.src,i.alt);}});
+      });
+      close.addEventListener('click',shut);
+      lb.addEventListener('click',e=>{if(e.target===lb)shut();});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))shut();});
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+
+<!-- my-site/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Flying English Center – Inspire Young Learners</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
+
+  <!-- Critical “above-the-fold” rules -->
+  <style>
+    :root{
+      --primary:#CBA205;
+      --accent:#074E78;
+      --light:#F5F7F8;
+      --radius:0.75rem;
+      --gap:1rem;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    body{margin:0;color:#222;background:#fff;line-height:1.5;}
+    a{color:inherit;text-decoration:none}
+    .btn{display:inline-block;padding:.75rem 2rem;border-radius:var(--radius);font-weight:600;white-space:nowrap}
+    .btn--primary{background:var(--accent);color:#fff}
+    
+    .btn--secondary{background:#fff;color:var(--accent);border:2px solid var(--accent)}
+    .skip-link{position:absolute;top:-4rem;left:1rem;background:#000;color:#fff;padding:.5rem 1rem;z-index:999}
+    .skip-link:focus{top:.5rem}
+    /* Header */
+    header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:.5rem 1rem}
+    nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+    nav a{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+    .hamburger{display:none;background:none;border:2px solid transparent;padding:.25rem;border-radius:var(--radius)}
+    .hamburger:focus{outline:3px solid var(--accent)}
+    /* Hero */
+    .hero{min-height:80vh;display:grid;place-items:center;text-align:center;background:url("images/hero.webp") center/cover no-repeat}
+    .hero-inner{backdrop-filter:brightness(.9);padding:2rem}
+    .tagline{font-style:italic;color:#fff;margin:0 0 .5rem}
+    .hero h1{font-size:clamp(2rem,5vw,4rem);font-weight:800;color:#fff;margin:.25rem 0}
+    .hero span{color:var(--primary)}
+    .accent{color:var(--accent);}   /* turns “YOU” blue (#074E78) */
+
+    /* Intro */
+    #about{max-width:60ch;margin:4rem auto;text-align:center;padding:0 1rem}
+    /* Join section */
+    #join{background:var(--light);padding:4rem 1rem}
+    #join .wrap{max-width:900px;margin:0 auto}
+    .join-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    figure{margin:0}
+    figcaption{font-size:.875rem;color:#444;margin-top:.5rem}
+    blockquote{margin:0;font-style:italic}
+    /* Footer */
+    footer{background:var(--primary);color:#fff;text-align:center;padding:2rem 1rem}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:var(--gap);align-items:center;justify-content:space-between}
+    .footer-links a{display:inline-block;margin:.25rem 1rem}
+    /* ≤768 px breakpoint */
+    @media(max-width:768px){
+      nav ul{--state:0;position:absolute;top:3.5rem;right:1rem;background:#fff;flex-direction:column;padding:1rem;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.15);max-height:0;overflow:hidden;transition:max-height .3s ease}
+      nav ul[aria-expanded="true"]{max-height:20rem}
+      .hamburger{display:inline-block}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="Flying English Center logo" width="120" height="48">
+      </a>
+
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false">
+        ☰<span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav id="primary-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="story.html">Our Story</a></li>
+          
+              <!-- EXTERNAL REVIEWS LINK -->
+    <li>
+        <a href="https://www.gooverseas.com/teach-abroad/china/program/219884"
+           target="_blank" rel="noopener">
+          Reviews
+        </a>
+      </li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="#join" class="btn btn--secondary">Join the Team</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" role="banner">
+      <div class="hero-inner">
+        <p class="tagline">Education • Learning</p>
+        <h1>STARTS WITH <span class="accent">YOU</span></h1>
+        <a href="#about" class="btn btn--primary">Learn&nbsp;More</a>
+      </div>
+    </section>
+
+    <!-- Intro -->
+    <section id="about">
+      <p>We educate through fun, interactive, focused training. Inspire young students to love learning.</p>
+    </section>
+
+    <!-- Join the Team -->
+    <section id="join">
+      <div class="wrap">
+        <h2>We’re Hiring!</h2>
+
+        <p>Flying English has positions open for three new teachers starting throughout 2023. These are ideal opportunities for enthusiastic and bubbly candidates! Teach at our English language center in Shanghai and experience life in China. Beginners or experienced teachers may apply!</p>
+
+        <p>This is the perfect chance to use your passion to help youngsters learn in a fun and friendly environment. You will work on evenings and weekends, and enjoy two consecutive weekdays off. You'll be teaching 18-22 hours each week and classes are small, with only 4-6 students ages 3-12.</p>
+
+        <h3>What our teachers say</h3>
+
+        <div class="join-grid">
+             <figure>
+                   <img src="images/connor_debra.jpg"
+                        alt="Connor teaching at Flying English"
+                        width="400" loading="lazy">
+                   <blockquote>
+                     “Home In Shanghai! After moving to Shanghai … If you are looking for a family and a place to grow and teach in Shanghai, look no further.”
+                   </blockquote>
+                   <figcaption>— Connor</figcaption>
+                 </figure>
+
+          <figure>
+            <img src="images/yaye.jpg" alt="Yaye with her Tot Talk class" width="400" loading="lazy">
+            <blockquote>
+              “Impressions – working at FE. I’ve worked at Flying English for almost a year now … Management is supportive in providing training to assist your teaching.”
+            </blockquote>
+            <figcaption>— Yaye</figcaption>
+          </figure>
+        </div>
+
+        <p style="text-align:center;margin-top:2rem">
+          <a href="mailto:flyingenglish@163.com" class="btn btn--primary">Apply Now</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="footer-inner">
+      <p>© 2025 Flying English Center</p>
+  
+      <div class="footer-links">
+        <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
+          <img src="images/Instagram_logo.svg" alt="Instagram" width="24" height="24" style="vertical-align:middle">
+        </a>
+  
+        <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener">
+          <img src="images/LinkedIn_logo.svg"  alt="LinkedIn"  width="24" height="24" style="vertical-align:middle">
+        </a>
+      </div>
+  
+      <a href="index.html"><img src="images/logo.png" alt="" width="120" height="48"></a>
+    </div>
+  </footer>
+
+  <!-- ===== Reusable templates ===== -->
+  <template id="cta-template">
+    <a href="#" class="btn btn--primary">Call to Action</a>
+  </template>
+
+  <template id="card-template">
+    <article class="card">
+      <h3>{% title %}</h3>
+      <p>{% content %}</p>
+      <a href="#" class="btn btn--secondary">Read More</a>
+    </article>
+  </template>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
