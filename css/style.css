@@ -117,24 +117,42 @@ nav a{
 }
 .hamburger:focus{outline:3px solid var(--accent);}
 
-/* Mobile dropdown ≤768 px */
+/* Mobile dropdown ≤768 px — patched to prevent "HOME" peeking */
 @media (max-width:768px){
+  .nav-wrap{ position: relative; } /* anchor abs menu */
+
+  .hamburger{ display:inline-block; }
+
+  /* collapsed */
   nav ul{
     position:absolute;
-    top:3.5rem;
-    right:1rem;
-    background:#fff;
-    flex-direction:column;
-    padding:1rem;
-    border-radius:var(--radius);
+    top:3.5rem; right:1rem;
+    display:flex; flex-direction:column; gap:.75rem;
+    margin:0; padding:0;                /* no padding when closed */
+    background:#fff; border-radius:var(--radius);
     box-shadow:0 4px 12px rgba(0,0,0,.15);
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .3s ease;
+    max-height:0; overflow:hidden;
+    visibility:hidden; opacity:0; pointer-events:none;
+    transition:
+      max-height .3s ease,
+      opacity .2s ease,
+      padding .2s ease,
+      visibility 0s .3s;               /* delay visibility until after close */
+    z-index:999;
   }
-  nav ul[aria-expanded="true"]{max-height:20rem;}
-  .hamburger{display:inline-block;}
+
+  /* expanded */
+  nav ul[aria-expanded="true"]{
+    padding:1rem;                       /* padding only when open */
+    max-height:20rem;
+    visibility:visible; opacity:1; pointer-events:auto;
+    transition:
+      max-height .3s ease,
+      opacity .2s ease,
+      padding .2s ease;
+  }
 }
+
 
 /* ───────────────── FOOTER (site-wide) ───────────────────────── */
 footer{
