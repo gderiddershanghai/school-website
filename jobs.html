@@ -5,6 +5,15 @@
   <meta charset="utf-8">
   <title>Careers | Flying English Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Teach English in Shanghai with Flying English Center. ESL roles for ages 3–12, ¥21k–26k net, housing allowance, ongoing training and full arrival support.">
+
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Social sharing (LinkedIn / Instagram / WeChat) -->
+  <meta property="og:title" content="Careers – Teach English in Shanghai with Flying English Center">
+  <meta property="og:description" content="ESL teaching roles, small classes, competitive pay, housing allowance and full arrival support in Shanghai.">
+  <meta property="og:image" content="images/school.jpg">
+  <meta property="og:type" content="website">
 
   <!-- keep the shared sheet for base look & header/footer -->
   <link rel="preload" href="css/style.css" as="style">
@@ -143,7 +152,7 @@
   <header>
     <div class="nav-wrap">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="Flying English Center logo" width="120" height="48"></a>
-      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false">☰<span class="visually-hidden">Menu</span></button>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
 
       <nav id="primary-nav">
         <ul>
@@ -159,7 +168,7 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero" role="banner">
+  <section class="hero">
     <div class="hero-inner">
       <h1>Teach • Explore • Grow</h1>
       <a href="#position" class="btn btn--primary">See Openings</a>
@@ -169,7 +178,7 @@
   <main id="main">
     <!-- summary -->
     <section class="section">
-      <p class="lead">We’re looking for <span class="highlight">enthusiastic ESL teachers</span> who want to spark curiosity in young learners and experience the best of Shanghai.</p>
+      <p class="lead">We’re looking for <span class="highlight">enthusiastic teachers</span> who love sparking curiosity in young learners — and who are ready to make the most of life in Shanghai.</p>
     </section>
 
     <!-- position & benefits -->
@@ -178,8 +187,9 @@
         <h2>The Position</h2>
         <ul>
           <li><strong>Role:</strong> English Second-Language Teacher</li>
+          <li><strong>Start:</strong> Late 2026</li>
           <li><strong>Schedule:</strong> Evenings & weekends (two consecutive weekdays off)</li>
-          <li><strong>Hours:</strong> 18 – 25 teaching hrs / week</li>
+          <li><strong>Hours:</strong> 18 – 22 teaching hrs / week</li>
           <li><strong>Location:</strong> Huangpu District, Shanghai (near Lu Ban Rd Station)</li>
           <li><strong>Students:</strong> Ages 3-12, class size 4-6</li>
         </ul>
@@ -189,14 +199,14 @@
         <h2>Pay & Benefits</h2>
         <ul>
           <li>2-month <strong>paid probation</strong></li>
-          <li><strong>¥21 k – 26 k</strong> RMB net (≈ US $3 k – 3.8 k)</li>
-          <li>Typical overtime ¥1.5 k – 2.5 k (earn ¥30 k+ total)</li>
+          <li><strong>¥21 k – 26 k</strong> RMB net per month (≈ US $2.9 k – 3.6 k)</li>
+          <li>Overtime typically ¥1.5 k – 2.5 k, bringing many teachers to <strong>¥30 k+ a month</strong></li>
           <li>Monthly housing allowance ¥3.5 k</li>
-          <li>All Chinese holidays + extra week at CNY & summer</li>
+          <li>All Chinese public holidays, plus an extra week at Chinese New Year and two weeks in summer</li>
           <li>Contract-end bonus ¥5 k – 15 k</li>
           <li>Annual trip & team-building events</li>
           <li>Health insurance & full arrival support</li>
-          <li>Ongoing training & pro-development</li>
+          <li>Ongoing training and professional development</li>
         </ul>
       </div>
     </section>
@@ -260,7 +270,7 @@
   <!-- ===== Footer (unchanged) ===== -->
   <footer>
     <div class="footer-inner">
-      <p>© 2025 Flying English Center</p>
+      <p>© 2026 Flying English Center</p>
   
       <div class="footer-links">
         <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
@@ -290,11 +300,13 @@
       const burger = document.querySelector('.hamburger');
       const nav    = document.querySelector('#primary-nav ul');
       if(!burger || !nav) return;
-      burger.addEventListener('click', ()=>{
-        const exp = burger.getAttribute('aria-expanded') === 'true';
-        burger.setAttribute('aria-expanded', !exp);
-        nav.setAttribute('aria-expanded', !exp);
-      });
+      const set = open => {
+        burger.setAttribute('aria-expanded', String(open));
+        nav.setAttribute('aria-expanded', String(open));
+      };
+      burger.addEventListener('click', ()=> set(burger.getAttribute('aria-expanded') !== 'true'));
+      nav.addEventListener('click', e=>{ if(e.target.closest('a')) set(false); });
+      document.addEventListener('keydown', e=>{ if(e.key==='Escape') set(false); });
     })();
 
     /* intersection fade-ins */

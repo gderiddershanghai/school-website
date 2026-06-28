@@ -5,6 +5,16 @@
   <meta charset="utf-8">
   <title>Our Story | Flying English Center</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The story of Flying English Center — a boutique English school in Shanghai's Huangpu District, founded in 2015. Our mission, milestones, and the team behind it.">
+
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+
+  <!-- Social sharing (LinkedIn / Instagram / WeChat) -->
+  <meta property="og:title" content="Our Story – Flying English Center, Shanghai">
+  <meta property="og:description" content="A boutique language school in downtown Shanghai since 2015. Meet the team and the mission behind it.">
+  <meta property="og:image" content="images/story-banner.webp">
+  <meta property="og:type" content="website">
+
   <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="css/style.css"></noscript>
@@ -120,7 +130,7 @@
   <header>
     <div class="nav-wrap">
       <a class="logo" href="index.html"><img src="images/logo.png" alt="Flying English Center logo" width="120" height="48"></a>
-      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false">☰<span class="visually-hidden">Menu</span></button>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
 
       <nav id="primary-nav">
         <ul>
@@ -135,14 +145,14 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero" role="banner">
+  <section class="hero">
     <h1>How Flying English Took Flight</h1>
   </section>
 
   <main id="main">
     <!-- origin story -->
     <section class="section">
-      <p>Flying English is a boutique language school in downtown Shanghai founded in 2015 by two mothers—a former chemical-engineer-turned-entrepreneur and a business consultant—who were disappointed with existing after-school options. Partnering with an education consultant, they set out to raise the bar for young learners.</p>
+      <p>Flying English is a boutique language school in downtown Shanghai, founded in 2015 by two mothers — a former chemical engineer turned entrepreneur and a business consultant — who weren’t satisfied with the after-school options around them. Together with an education consultant, they set out to raise the bar for young learners.</p>
 
       <div class="pull-quote">
         “I received offers from many schools when I first got to Shanghai, but I’m incredibly happy I chose Flying English. Everyone here truly cares about making a difference. - Tina”
@@ -165,13 +175,13 @@
       <!-- timeline -->
       <h2>Milestones</h2>
       <ol class="timeline fade">
-        <li><time datetime=" 2014">2014</time> &nbsp; Doors open with 2 classrooms and 12 students.</li>
- 
-        <li><time datetime=" 2017">2017</time> &nbsp; Moved to current Huangpu HQ; </li>
-        <li><time datetime=" 2019">2019</time> &nbsp; Passed <strong>500</strong> enrolment; Opened a second campus - Total Staff of 40</li>
-        <li><time datetime=" 2020-2022">2020</time> &nbsp; Covid hit - borders closed & closed second campus :( </li>
+        <li><time datetime="2014">2014</time> &nbsp; Opened our doors with 2 classrooms and 12 students.</li>
 
-        <li><time datetime=" 2025">2025</time> &nbsp; Looking for <strong>you</strong> to join our team!</li>
+        <li><time datetime="2017">2017</time> &nbsp; Moved to our current home in Huangpu District.</li>
+        <li><time datetime="2019">2019</time> &nbsp; Passed <strong>500</strong> enrolments and opened a second campus, growing to a team of 40.</li>
+        <li><time datetime="2020">2020</time> &nbsp; The pandemic closed borders — and, sadly, our second campus.</li>
+
+        <li><time datetime="2026">2026</time> &nbsp; Looking for <strong>you</strong> to join our team!</li>
 
       </ol>
     </section>
@@ -181,7 +191,7 @@
       <div class="grid-2">
         <div>
           <h2>Our Mission</h2>
-          <p>Remain a boutique centre that delivers high-quality English education to young learners while nurturing creativity, confidence, and curiosity.</p>
+          <p>To stay a boutique centre delivering high-quality English education — while nurturing every child’s creativity, confidence, and curiosity.</p>
         </div>
         <div>
           <h2>What We’ve Achieved</h2>
@@ -248,7 +258,7 @@
   <!-- ===== Footer (unchanged) ===== -->
   <footer>
     <div class="footer-inner">
-      <p>© 2025 Flying English Center</p>
+      <p>© 2026 Flying English Center</p>
   
       <div class="footer-links">
         <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
@@ -276,7 +286,11 @@
     /* burger */
     (function(){
       const b=document.querySelector('.hamburger'),u=document.querySelector('#primary-nav ul');
-      if(b) b.addEventListener('click',()=>{const e=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!e);u.setAttribute('aria-expanded',!e);});
+      if(!b||!u) return;
+      const set=open=>{b.setAttribute('aria-expanded',String(open));u.setAttribute('aria-expanded',String(open));};
+      b.addEventListener('click',()=>set(b.getAttribute('aria-expanded')!=='true'));
+      u.addEventListener('click',e=>{if(e.target.closest('a'))set(false);});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false);});
     })();
     /* fade */
     (function(){

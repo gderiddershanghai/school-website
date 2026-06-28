@@ -4,11 +4,16 @@ const hamburger = document.querySelector('.hamburger');
 const navList   = document.querySelector('#primary-nav ul');
 
 if (hamburger && navList){
+  const setMenu = open => {
+    hamburger.setAttribute('aria-expanded', String(open));
+    navList.setAttribute('aria-expanded', String(open));
+  };
   hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !expanded);
-    navList.setAttribute('aria-expanded', !expanded);
+    setMenu(hamburger.getAttribute('aria-expanded') !== 'true');
   });
+  // close the menu after tapping a link or pressing Escape
+  navList.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
 }
 
 /* ───────── Fade-in on scroll ───────── */
