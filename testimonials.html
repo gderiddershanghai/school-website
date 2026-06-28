@@ -1,134 +1,162 @@
-<!-- my-site/testimonials.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Testimonials | Flying English Center</title>
+  <title>Testimonials | Flying English Center, Shanghai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Hear from Flying English Center teachers and staff about life teaching English in Shanghai — recreation, classroom life, and what it's really like.">
+  <meta name="description" content="Hear from Flying English Center teachers and staff about life teaching English in Shanghai — the classroom, the city, and what it's really like.">
 
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
-
-  <!-- Social sharing (LinkedIn / Instagram / WeChat) -->
-  <meta property="og:title" content="Testimonials – Flying English Center, Shanghai">
+  <meta property="og:title" content="Testimonials — Flying English Center, Shanghai">
   <meta property="og:description" content="Teachers and staff share what life is really like at Flying English Center in Shanghai.">
   <meta property="og:image" content="images/team1.jpg">
   <meta property="og:type" content="website">
 
-  <link rel="preload" href="css/style.css" as="style">
-  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-
-  <!-- video-layout rules (unchanged) -->
-  <style>
-    .t-row{display:grid;grid-template-columns:minmax(0,1fr) 20rem;gap:1.5rem;align-items:center;margin-block:3rem}
-    .t-info h3{margin:.25rem 0;font-size:1rem;font-weight:600}
-    .video-wrap{position:relative;padding-top:56.25%}
-    .video-wrap iframe,
-    .video-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;border-radius:var(--radius)}
-    .yt-thumb{display:grid;place-items:center;background:#000;color:#fff;font-weight:600;font-size:1.25rem;text-decoration:none;border-radius:var(--radius)}
-    .yt-thumb span{background:rgba(0,0,0,.6);padding:.5rem 1rem;border-radius:var(--radius)}
-    @media(max-width:768px){
-      .t-row{grid-template-columns:1fr}
-      .t-info{order:-1;text-align:center}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- <a class="skip-link" href="#main">Skip to content</a> -->
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===== Header (identical to index) ===== -->
-  <header>
+  <div class="topbar" role="presentation">
+    FEC · 上海 SHANGHAI PVG · EST. 2015 · <b>NOW BOARDING: 1 TEACHER</b> · DEPARTURE LATE 2026
+  </div>
+
+  <header class="site-header">
     <div class="nav-wrap">
-      <a class="logo" href="index.html">
-        <img src="images/logo.png" alt="Flying English Center logo" width="120" height="48">
+      <a class="brand" href="index.html" aria-label="Flying English Center — home">
+        <img src="images/logo.png" alt="Flying English Center logo">
       </a>
-
-      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
-        <span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
       </button>
-
-      <nav id="primary-nav">
-        <ul>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="story.html">Our Story</a></li>
-          <li><a href="jobs.html">Join the Team</a></li>
           <li><a href="testimonials.html" aria-current="page">Testimonials</a></li>
-          <li>
-            <a href="https://www.gooverseas.com/teach-abroad/china/program/219884"
-               target="_blank" rel="noopener">Reviews</a>
-          </li>
+          <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews</a></li>
+          <li><a href="jobs.html" class="btn btn--gold">Apply to teach</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <div class="nav-backdrop"></div>
 
-  <!-- ===== Main ===== -->
   <main id="main">
-    <!-- Intro -->
-    <section style="max-width:60ch;margin:4rem auto;padding:0 1rem;text-align:center">
-      <p>Life in Shanghai with Flying English — a look at what teaching abroad is really like, from the classroom to your time off. Hear it straight from our team. <em>(VPN required to view these videos from inside China.)</em></p>
+    <!-- ===== Page header ===== -->
+    <section class="pagehead" style="--bg:url('images/team1.jpg')">
+      <div class="pagehead-inner">
+        <p class="kicker kicker--light">Straight from the team</p>
+        <h1>What teaching here is really like.</h1>
+        <p class="lede">Life in Shanghai with Flying English — from the classroom to your time off. Hear it from the people who live it.</p>
+        <p style="font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;color:#9FC4DC;margin-top:1.2rem">Note: a VPN is required to view these videos from inside China.</p>
+      </div>
     </section>
 
-    <!-- Winnie -->
-    <article class="t-row">
-      <div class="video-wrap">
-        <iframe src="https://player.vimeo.com/video/366184821"
-                title="Winnie Ma – Foreign Teacher Manager testimonial"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="t-info">
-        <h3>2019 – Winnie Ma, Foreign Teacher Manager</h3>
-      </div>
-    </article>
+    <!-- ===== Video rows ===== -->
+    <section class="section">
+      <div class="wrap">
+        <!-- Winnie -->
+        <article class="t-row reveal">
+          <div class="t-media">
+            <iframe src="https://player.vimeo.com/video/366184821"
+                    title="Winnie Ma — Foreign Teacher Manager testimonial"
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="t-info">
+            <p class="yr">2019 · Vimeo</p>
+            <h3>Winnie Ma</h3>
+            <p>Foreign Teacher Manager — on building a team that supports each other from day one.</p>
+          </div>
+        </article>
 
-    <!-- Rhiannon -->
-    <article class="t-row">
-      <div class="video-wrap">
-        <iframe src="https://player.vimeo.com/video/372147453"
-                title="Rhiannon Thomas – Foreign Teacher testimonial"
-                allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="t-info">
-        <h3>2019 – Rhiannon Thomas, Foreign Teacher</h3>
-      </div>
-    </article>
+        <!-- Rhiannon -->
+        <article class="t-row reveal">
+          <div class="t-media">
+            <iframe src="https://player.vimeo.com/video/372147453"
+                    title="Rhiannon Thomas — Foreign Teacher testimonial"
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="t-info">
+            <p class="yr">2019 · Vimeo</p>
+            <h3>Rhiannon Thomas</h3>
+            <p>Foreign Teacher — on moving to Shanghai and finding her feet in the classroom.</p>
+          </div>
+        </article>
 
-    <!-- Chinese promo – fallback thumbnail -->
-    <article class="t-row">
-      <div class="video-wrap">
-        <a class="yt-thumb" href="https://www.youtube.com/watch?v=Gd5__Cx9EbE" target="_blank" rel="noopener">
-          <img src="https://img.youtube.com/vi/Gd5__Cx9EbE/hqdefault.jpg"
-               alt="Flying English – Chinese promo thumbnail" loading="lazy">
-          <span>Watch on YouTube ▶</span>
-        </a>
+        <!-- Chinese promo -->
+        <article class="t-row reveal">
+          <div class="t-media">
+            <a class="yt-thumb" href="https://www.youtube.com/watch?v=Gd5__Cx9EbE" target="_blank" rel="noopener">
+              <img src="https://img.youtube.com/vi/Gd5__Cx9EbE/hqdefault.jpg" alt="Flying English Chinese promo video thumbnail" loading="lazy">
+              <span>Watch on YouTube ▶</span>
+            </a>
+          </div>
+          <div class="t-info">
+            <p class="yr">YouTube</p>
+            <h3>Flying English — promo</h3>
+            <p>A short look at the school and the city, in Chinese.</p>
+          </div>
+        </article>
       </div>
-      <div class="t-info">
-        <h3>Flying English – Chinese promo</h3>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section section--paper">
+      <div class="wrap">
+        <div class="cta reveal">
+          <p class="kicker kicker--light">Could this be you?</p>
+          <h2>The next testimonial is yours to record.</h2>
+          <p class="lede">One teaching seat is open for late 2026. Beginners welcome — we’ll help you land.</p>
+          <div class="hero-cta" style="justify-content:center;margin-bottom:0">
+            <a href="jobs.html" class="btn btn--gold">See the opening <span class="arr">→</span></a>
+            <a href="mailto:flyingenglish@163.com" class="btn btn--on-navy">Email us</a>
+          </div>
+        </div>
       </div>
-    </article>
+    </section>
   </main>
 
-  <!-- ===== Footer (identical to index) ===== -->
-  <footer>
-    <div class="footer-inner">
-      <p>© 2026 Flying English Center</p>
-  
-      <div class="footer-links">
-        <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
-          <img src="images/Instagram_logo.svg" alt="Instagram" width="24" height="24" style="vertical-align:middle">
-        </a>
-  
-        <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener">
-          <img src="images/LinkedIn_logo.svg"  alt="LinkedIn"  width="24" height="24" style="vertical-align:middle">
-        </a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="f-brand">
+          <img src="images/logo.png" alt="Flying English Center logo">
+          <p>A boutique English school in downtown Shanghai since 2015. Where learning — and teachers — take flight.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener" aria-label="Flying English on Instagram"><img src="images/Instagram_logo.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener" aria-label="Flying English on LinkedIn"><img src="images/LinkedIn_logo.svg" alt=""></a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="jobs.html">Join the Team</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Find us</h4>
+          <address style="font-style:normal;line-height:1.8">
+            Building 1, 1236 Qu Xi Road<br>Huangpu District<br>Shanghai 200011, CN<br><br>
+            <a href="mailto:flyingenglish@163.com">flyingenglish@163.com</a>
+          </address>
+        </div>
       </div>
-  
-      <a href="index.html"><img src="images/logo.png" alt="" width="120" height="48"></a>
+      <div class="footer-bottom">
+        <span>© 2026 Flying English Center</span>
+        <span>上海 · Shanghai</span>
+      </div>
     </div>
   </footer>
-  
 
   <script src="js/main.js" defer></script>
 </body>

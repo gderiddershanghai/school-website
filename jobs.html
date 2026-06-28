@@ -1,342 +1,219 @@
-<!-- my-site/jobs.html  – standalone page -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Careers | Flying English Center</title>
+  <title>Join the Team | Flying English Center, Shanghai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Teach English in Shanghai with Flying English Center. ESL roles for ages 3–12, ¥21k–26k net, housing allowance, ongoing training and full arrival support.">
+  <meta name="description" content="Teach English in Shanghai with Flying English Center. One teaching role for ages 3–12, 18–22 hrs/week, ¥21k–26k net plus housing allowance, bonuses, training and full arrival support.">
 
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
-
-  <!-- Social sharing (LinkedIn / Instagram / WeChat) -->
-  <meta property="og:title" content="Careers – Teach English in Shanghai with Flying English Center">
-  <meta property="og:description" content="ESL teaching roles, small classes, competitive pay, housing allowance and full arrival support in Shanghai.">
+  <meta property="og:title" content="Join the Team — Teach English in Shanghai with Flying English">
+  <meta property="og:description" content="An ESL teaching role, small classes, competitive pay, housing allowance and full arrival support in downtown Shanghai.">
   <meta property="og:image" content="images/school.jpg">
   <meta property="og:type" content="website">
 
-  <!-- keep the shared sheet for base look & header/footer -->
-  <link rel="preload" href="css/style.css" as="style">
-  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-
-  <!-- ── jobs-page-only CSS (scoped) ─────────────────────────── -->
-  <style>
-
-
-#jobs-page header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:#fff;
-  box-shadow:0 2px 4px rgba(0,0,0,.05);
-}
-#jobs-page .nav-wrap{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  max-width:1200px;
-  margin:0 auto;
-  padding:.5rem 1rem;
-}
-#jobs-page nav ul{
-  display:flex;
-  gap:1.5rem;
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-#jobs-page nav a{
-  font-size:.875rem;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:.05em;
-}
-#jobs-page .hamburger{
-  display:none;
-  background:none;
-  border:2px solid transparent;
-  padding:.25rem;
-  border-radius:var(--radius);
-}
-#jobs-page .hamburger:focus{outline:3px solid var(--accent);}
-
-/* ≤ 768 px: mobile nav drops down, burger appears */
-@media (max-width:768px){
-  #jobs-page nav ul{
-    position:absolute;
-    top:3.5rem;
-    right:1rem;
-    background:#fff;
-    flex-direction:column;
-    padding:1rem;
-    border-radius:var(--radius);
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .3s ease;
-  }
-  #jobs-page nav ul[aria-expanded="true"]{max-height:20rem;}
-  #jobs-page .hamburger{display:inline-block;}
-}
-
-/* Footer */
-#jobs-page footer{
-  background:var(--primary);
-  color:#fff;
-  text-align:center;
-  padding:2rem 1rem;
-}
-#jobs-page .footer-inner{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  flex-wrap:wrap;
-  gap:var(--gap);
-  align-items:center;
-  justify-content:space-between;
-}
-#jobs-page .footer-links a{display:inline-block;margin:.25rem 1rem;}
-
-    /* scope everything under #jobs-page so other pages ignore it */
-    #jobs-page {
-      /* hero */
-      --hero-img:url('images/school.jpg');
-    }
-    #jobs-page .hero {
-      min-height:70vh;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      background:var(--hero-img) center/cover no-repeat;
-    }
-
-    /* layout blocks */
-    #jobs-page .section       {max-width:60rem;margin:4rem auto;padding:0 1rem;}
-    #jobs-page .section.alt   {background:var(--light);padding:4rem 1rem;border-radius:var(--radius);}
-    #jobs-page .grid-2        {display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-    #jobs-page .lead          {font-size:1.25rem;font-weight:600;max-width:45ch;margin:0 auto;text-align:center;}
-    #jobs-page .highlight     {color:var(--primary);}
-    @media(max-width:768px){#jobs-page .grid-2{grid-template-columns:1fr;}}
-
-    /* gallery (thumbnails) */
-    #jobs-page .gallery{
-      --ratio:3/2;
-      display:grid;
-      gap:var(--gap);
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    }
-    #jobs-page .gallery img{
-      width:100%;
-      aspect-ratio:var(--ratio);
-      object-fit:cover;
-      border-radius:var(--radius);
-      transition:transform .3s ease;
-      cursor:zoom-in;
-    }
-    #jobs-page .gallery img:hover,
-    #jobs-page .gallery img:focus{transform:scale(1.05);outline:none;}
-
-    /* light-box */
-    #lightbox        {display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);place-items:center;padding:2rem;}
-    #lightbox.open   {display:grid;}
-    #lightbox img    {max-width:90vw;max-height:85vh;border-radius:var(--radius);}
-    .lb-close        {position:absolute;top:1rem;right:1rem;background:none;border:0;font-size:2rem;color:#fff;cursor:pointer;}
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<body id="jobs-page">
-  <!-- <a class="skip-link" href="#main">Skip to content</a> -->
+  <div class="topbar" role="presentation">
+    FEC · 上海 SHANGHAI PVG · EST. 2015 · <b>NOW BOARDING: 1 TEACHER</b> · DEPARTURE LATE 2026
+  </div>
 
-  <!-- ===== Sticky header (unchanged) ===== -->
-  <header>
+  <header class="site-header">
     <div class="nav-wrap">
-      <a class="logo" href="index.html"><img src="images/logo.png" alt="Flying English Center logo" width="120" height="48"></a>
-      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu"><span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span></button>
-
-      <nav id="primary-nav">
-        <ul>
+      <a class="brand" href="index.html" aria-label="Flying English Center — home">
+        <img src="images/logo.png" alt="Flying English Center logo">
+      </a>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="story.html">Our Story</a></li>
-          <li><a href="#gallery-kids">Gallery</a></li>
-          <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="jobs.html" class="btn btn--secondary" aria-current="page">Join the Team</a></li>
+          <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews</a></li>
+          <li><a href="jobs.html" class="btn btn--gold" aria-current="page">Apply to teach</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>Teach • Explore • Grow</h1>
-      <a href="#position" class="btn btn--primary">See Openings</a>
-    </div>
-  </section>
+  <div class="nav-backdrop"></div>
 
   <main id="main">
-    <!-- summary -->
+    <!-- ===== Page header ===== -->
+    <section class="pagehead" style="--bg:url('images/school.jpg')">
+      <div class="pagehead-inner">
+        <p class="kicker kicker--light">The role · Late 2026 departure</p>
+        <h1>Teach. Explore. Grow. One seat open.</h1>
+        <p class="lede">We’re looking for one enthusiastic teacher who loves sparking curiosity in young learners and making the most of life in Shanghai. Beginners and experienced teachers are both welcome.</p>
+        <div class="boardingpass" style="margin-top:1.8rem" aria-label="Role summary">
+          <div class="bp-cell"><span class="k">Position</span><span class="v">ESL Teacher</span></div>
+          <div class="bp-cell"><span class="k">Pay (net)</span><span class="v">¥21k–26k</span></div>
+          <div class="bp-cell"><span class="k">Commitment</span><span class="v">1 year</span></div>
+          <div class="bp-cell"><span class="k">Seats</span><span class="v">1</span></div>
+        </div>
+        <div class="hero-cta">
+          <a href="#apply" class="btn btn--gold">Apply now <span class="arr">→</span></a>
+          <a href="#position" class="btn btn--on-navy">See the details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Position + benefits ===== -->
+    <section class="section section--paper" id="position">
+      <div class="wrap">
+        <div class="grid grid-2">
+          <article class="card reveal">
+            <p class="kicker">The position</p>
+            <h2>What you’ll do</h2>
+            <ul class="ticklist" style="margin-top:1rem">
+              <li><strong>Role:</strong> English Second-Language Teacher</li>
+              <li><strong>Start:</strong> Late 2026</li>
+              <li><strong>Schedule:</strong> Evenings &amp; weekends, two consecutive weekdays off</li>
+              <li><strong>Hours:</strong> 18–22 teaching hours per week</li>
+              <li><strong>Students:</strong> Ages 3–12, classes of 4–6</li>
+              <li><strong>Location:</strong> Huangpu District, Shanghai (near Lu Ban Rd Station)</li>
+            </ul>
+          </article>
+          <article class="card reveal">
+            <p class="kicker">Pay &amp; benefits</p>
+            <h2>What you’ll get</h2>
+            <ul class="ticklist" style="margin-top:1rem">
+              <li><strong>¥21k–26k</strong> net per month (≈ US $2.9k–3.6k)</li>
+              <li>Overtime typically ¥1.5k–2.5k — many teachers reach <strong>¥30k+ a month</strong></li>
+              <li>Monthly housing allowance <strong>¥3.5k</strong></li>
+              <li>2-month <strong>paid probation</strong></li>
+              <li>Contract-end bonus <strong>¥5k–15k</strong></li>
+              <li>All Chinese public holidays, plus an extra week at Chinese New Year and two weeks in summer</li>
+              <li>Health insurance &amp; full arrival support</li>
+              <li>Annual trip, team-building, and ongoing training</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Requirements ===== -->
     <section class="section">
-      <p class="lead">We’re looking for <span class="highlight">enthusiastic teachers</span> who love sparking curiosity in young learners — and who are ready to make the most of life in Shanghai.</p>
-    </section>
-
-    <!-- position & benefits -->
-    <section class="section grid-2 alt" id="position">
-      <div>
-        <h2>The Position</h2>
-        <ul>
-          <li><strong>Role:</strong> English Second-Language Teacher</li>
-          <li><strong>Start:</strong> Late 2026</li>
-          <li><strong>Schedule:</strong> Evenings & weekends (two consecutive weekdays off)</li>
-          <li><strong>Hours:</strong> 18 – 22 teaching hrs / week</li>
-          <li><strong>Location:</strong> Huangpu District, Shanghai (near Lu Ban Rd Station)</li>
-          <li><strong>Students:</strong> Ages 3-12, class size 4-6</li>
-        </ul>
-      </div>
-
-      <div>
-        <h2>Pay & Benefits</h2>
-        <ul>
-          <li>2-month <strong>paid probation</strong></li>
-          <li><strong>¥21 k – 26 k</strong> RMB net per month (≈ US $2.9 k – 3.6 k)</li>
-          <li>Overtime typically ¥1.5 k – 2.5 k, bringing many teachers to <strong>¥30 k+ a month</strong></li>
-          <li>Monthly housing allowance ¥3.5 k</li>
-          <li>All Chinese public holidays, plus an extra week at Chinese New Year and two weeks in summer</li>
-          <li>Contract-end bonus ¥5 k – 15 k</li>
-          <li>Annual trip & team-building events</li>
-          <li>Health insurance & full arrival support</li>
-          <li>Ongoing training and professional development</li>
+      <div class="wrap">
+        <div class="reveal" style="max-width:46ch">
+          <p class="kicker">Your boarding pass</p>
+          <h2>What you’ll need to bring</h2>
+          <p class="lede">A short, honest checklist. Tick these and we’d love to hear from you.</p>
+        </div>
+        <ul class="grid grid-2 reveal" style="list-style:none;margin:2rem 0 0;padding:0">
+          <li class="card value"><span class="glyph" aria-hidden="true">📅</span><div><h3>One-year commitment</h3><p>A minimum of one year so your students get consistency.</p></div></li>
+          <li class="card value"><span class="glyph" aria-hidden="true">🗣️</span><div><h3>Native English speaker</h3><p>With a clean background check.</p></div></li>
+          <li class="card value"><span class="glyph" aria-hidden="true">🎓</span><div><h3>Bachelor’s degree</h3><p>Any field — it’s required for your work visa.</p></div></li>
+          <li class="card value"><span class="glyph" aria-hidden="true">📜</span><div><h3>TEFL certificate</h3><p>Completed or in progress. And a genuine love of working with kids.</p></div></li>
         </ul>
       </div>
     </section>
 
-    <!-- requirements -->
-    <section class="section" id="requirements">
-      <h2>Requirements</h2>
-      <ul>
-        <li>Minimum <strong>one-year commitment</strong></li>
-        <li>Native English speaker with clean background check</li>
-        <li>Bachelor’s degree (any field)</li>
-        <li>TEFL certificate (completed or in progress)</li>
-        <li>A genuine love of working with kids!</li>
-      </ul>
-    </section>
-
-    <!-- kids gallery -->
-    <section class="section alt" id="gallery-kids">
-      <h2>Life in the Classroom</h2>
-      <div class="gallery fade">
-        <img src="images/kids1.jpg" alt="Young learners practising English" loading="lazy" tabindex="0">
-        <img src="images/kids2.jpg" alt="Group activity with flashcards"      loading="lazy" tabindex="0">
-        <img src="images/kids3.jpg" alt="Hands-on craft lesson"               loading="lazy" tabindex="0">
-        <img src="images/kids4.jpg" alt="Teacher helping a child read"        loading="lazy" tabindex="0">
+    <!-- ===== Classroom gallery ===== -->
+    <section class="section section--paper" id="gallery">
+      <div class="wrap">
+        <div class="reveal" style="max-width:46ch">
+          <p class="kicker">Life in the classroom</p>
+          <h2>This is the room you’d walk into.</h2>
+        </div>
+        <div class="gallery reveal" data-lightbox style="margin-top:2rem">
+          <button type="button"><img src="images/kids1.jpg" alt="Young learners practising English together" loading="lazy"></button>
+          <button type="button"><img src="images/kids2.jpg" alt="Group activity with flashcards" loading="lazy"></button>
+          <button type="button"><img src="images/kids3.jpg" alt="Hands-on craft lesson in progress" loading="lazy"></button>
+          <button type="button"><img src="images/kids4.jpg" alt="A teacher helping a child read" loading="lazy"></button>
+        </div>
       </div>
     </section>
 
-    <!-- team gallery -->
-    <section class="section" id="gallery-team">
-      <h2>Team-Building Moments</h2>
-      <div class="gallery fade">
-        <img src="images/team1.jpg"      alt="Staff group photo"             loading="lazy" tabindex="0">
-        <img src="images/team2.jpg"      alt="Cooking-class event"           loading="lazy" tabindex="0">
-        <img src="images/team3.jpg"      alt="Escape-room victory pose"      loading="lazy" tabindex="0">
-        <img src="images/team4.jpg"      alt="Weekend hike in the hills"     loading="lazy" tabindex="0">
-        <img src="images/team5.jpg"      alt="Laser Tag Team Building Activity"     loading="lazy" tabindex="0">
-        <img src="images/team6.jpg"      alt="Christmas Hot Pot Dinner"     loading="lazy" tabindex="0">
-        <img src="images/team_bali.jpg"  alt="Bali retreat – beach cleanup"  loading="lazy" tabindex="0">
-        <img src="images/team_bali1.jpg" alt="Bali retreat – team dinner"    loading="lazy" tabindex="0">
-        <img src="images/team_bali2.jpg" alt="Bali retreat – cultural workshop" loading="lazy" tabindex="0">
-        <img src="images/team_bali3.jpg" alt="Bali retreat – Fun" loading="lazy" tabindex="0">
-        <img src="images/team_bali4.jpg" alt="Bali retreat – Snake" loading="lazy" tabindex="0">
-
-        <img src="images/team_bali5.jpg" alt="Bali retreat – Volcano" loading="lazy" tabindex="0">
-
+    <!-- ===== Team gallery ===== -->
+    <section class="section" id="team">
+      <div class="wrap">
+        <div class="reveal" style="max-width:46ch">
+          <p class="kicker">Off the clock</p>
+          <h2>Team-building, hot pot, and a trip to Bali.</h2>
+          <p class="lede">Two consecutive days off every week, plus an annual team trip.</p>
+        </div>
+        <div class="gallery reveal" data-lightbox style="margin-top:2rem">
+          <button type="button"><img src="images/team1.jpg" alt="Staff group photo" loading="lazy"></button>
+          <button type="button"><img src="images/team2.jpg" alt="Team cooking-class event" loading="lazy"></button>
+          <button type="button"><img src="images/team3.jpg" alt="Escape-room victory pose" loading="lazy"></button>
+          <button type="button"><img src="images/team4.jpg" alt="Weekend hike in the hills" loading="lazy"></button>
+          <button type="button"><img src="images/team5.jpg" alt="Laser tag team-building activity" loading="lazy"></button>
+          <button type="button"><img src="images/team6.jpg" alt="Christmas hot pot dinner" loading="lazy"></button>
+          <button type="button"><img src="images/team_bali1.jpg" alt="Bali retreat — team dinner" loading="lazy"></button>
+          <button type="button"><img src="images/team_bali2.jpg" alt="Bali retreat — cultural workshop" loading="lazy"></button>
+          <button type="button"><img src="images/team_bali3.jpg" alt="Bali retreat — having fun" loading="lazy"></button>
+          <button type="button"><img src="images/team_bali4.jpg" alt="Bali retreat — meeting a snake" loading="lazy"></button>
+        </div>
       </div>
     </section>
 
-    <!-- CTA -->
-<!-- CTA -->
-<section class="section cta-banner">
-    <h2 style="margin-top:0">Ready to join the team?</h2>
-    <p style="max-width:40ch;margin:0 auto 2rem">
-      Send your CV or any questions to our recruitment inbox <i>(flyingenglish@163.com)</i> and we’ll get back to you within 48 hours.
-    </p>
-    <a href="mailto:flyingenglish@163.com" class="btn">Apply&nbsp;Now</a>
-  </section>
-  
+    <!-- ===== Apply CTA ===== -->
+    <section class="section section--paper" id="apply">
+      <div class="wrap">
+        <div class="cta reveal">
+          <p class="kicker kicker--light">How to apply</p>
+          <h2>Ready to claim a seat?</h2>
+          <p class="lede">Send your CV — or just your questions — to our recruitment inbox and we’ll get back to you within 48 hours.</p>
+          <div class="hero-cta" style="justify-content:center;margin-bottom:1.2rem">
+            <a href="mailto:flyingenglish@163.com" class="btn btn--gold">Email flyingenglish@163.com</a>
+          </div>
+          <p style="font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;color:#A9C4D6;margin:0">Questions in EN or 中文 → Anna Shen · Vera You</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ===== Footer (unchanged) ===== -->
-  <footer>
-    <div class="footer-inner">
-      <p>© 2026 Flying English Center</p>
-  
-      <div class="footer-links">
-        <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
-          <img src="images/Instagram_logo.svg" alt="Instagram" width="24" height="24" style="vertical-align:middle">
-        </a>
-  
-        <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener">
-          <img src="images/LinkedIn_logo.svg"  alt="LinkedIn"  width="24" height="24" style="vertical-align:middle">
-        </a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="f-brand">
+          <img src="images/logo.png" alt="Flying English Center logo">
+          <p>A boutique English school in downtown Shanghai since 2015. Where learning — and teachers — take flight.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener" aria-label="Flying English on Instagram"><img src="images/Instagram_logo.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener" aria-label="Flying English on LinkedIn"><img src="images/LinkedIn_logo.svg" alt=""></a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="jobs.html">Join the Team</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Find us</h4>
+          <address style="font-style:normal;line-height:1.8">
+            Building 1, 1236 Qu Xi Road<br>Huangpu District<br>Shanghai 200011, CN<br><br>
+            <a href="mailto:flyingenglish@163.com">flyingenglish@163.com</a>
+          </address>
+        </div>
       </div>
-  
-      <a href="index.html"><img src="images/logo.png" alt="" width="120" height="48"></a>
+      <div class="footer-bottom">
+        <span>© 2026 Flying English Center</span>
+        <span>上海 · Shanghai</span>
+      </div>
     </div>
   </footer>
-  
 
-  <!-- light-box container (only this page uses it) -->
-  <div id="lightbox">
-    <button class="lb-close" aria-label="Close">×</button>
+  <!-- Lightbox -->
+  <div class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Close image">×</button>
     <img alt="">
+    <figcaption></figcaption>
   </div>
 
-  <!-- ── jobs-page-only JS (scoped) ─────────────────────────────── -->
-  <script>
-    /* open/close navigation (uses classes from global sheet) */
-    (function(){
-      const burger = document.querySelector('.hamburger');
-      const nav    = document.querySelector('#primary-nav ul');
-      if(!burger || !nav) return;
-      const set = open => {
-        burger.setAttribute('aria-expanded', String(open));
-        nav.setAttribute('aria-expanded', String(open));
-      };
-      burger.addEventListener('click', ()=> set(burger.getAttribute('aria-expanded') !== 'true'));
-      nav.addEventListener('click', e=>{ if(e.target.closest('a')) set(false); });
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape') set(false); });
-    })();
-
-    /* intersection fade-ins */
-    (function(){
-      const faders = document.querySelectorAll('#jobs-page .fade');
-      if(!('IntersectionObserver'in window)){faders.forEach(el=>el.classList.add('in'));return;}
-      const obs = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),
-                                           {threshold:0.2});
-      faders.forEach(el=>obs.observe(el));
-    })();
-
-    /* light-box just for #jobs-page */
-    (function(){
-      const lb      = document.getElementById('lightbox');
-      const lbImg   = lb.querySelector('img');
-      const lbClose = lb.querySelector('.lb-close');
-      function open(src, alt){
-        lbImg.src = src; lbImg.alt = alt; lb.classList.add('open'); lbClose.focus();
-      }
-      function close(){ lb.classList.remove('open'); lbImg.src = ''; }
-      document.querySelectorAll('#jobs-page .gallery img').forEach(img=>{
-        img.addEventListener('click',   ()=>open(img.src, img.alt));
-        img.addEventListener('keydown', e=>{
-          if(e.key==='Enter'||e.key===' '){e.preventDefault(); open(img.src, img.alt);}
-        });
-      });
-      lbClose.addEventListener('click', close);
-      lb.addEventListener('click', e=>{ if(e.target===lb) close(); });
-      document.addEventListener('keydown', e=>{ if(e.key==='Escape'&&lb.classList.contains('open')) close(); });
-    })();
-  </script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -1,184 +1,196 @@
-
-<!-- my-site/index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Flying English Center – Inspire Young Learners</title>
+  <title>Flying English Center — Teach kids, move to Shanghai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flying English Center in Shanghai is hiring two teachers for small classes of 3–12 year-olds. Beginners welcome, evenings and weekends, two weekdays off, training from day one.">
+  <meta name="description" content="Flying English Center, a boutique school in downtown Shanghai, is hiring two English teachers for small classes of 3–12 year-olds. Evenings and weekends, two weekdays off, full arrival support. Beginners welcome.">
 
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 
-  <!-- Social sharing (LinkedIn / Instagram / WeChat) -->
-  <meta property="og:title" content="Teach English in Shanghai – Flying English Center is hiring">
-  <meta property="og:description" content="Two teaching positions open. Small classes, curious kids, a supportive team. Beginners welcome.">
+  <meta property="og:title" content="Teach English in Shanghai — Flying English Center is hiring">
+  <meta property="og:description" content="One teaching position open. Small classes, curious kids, a team that becomes family. Beginners welcome.">
   <meta property="og:image" content="images/hero.webp">
   <meta property="og:type" content="website">
 
-  <link rel="preload" href="css/style.css" as="style">
-  <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-
-  <!-- Critical “above-the-fold” rules -->
-  <style>
-    :root{
-      --primary:#CBA205;
-      --accent:#074E78;
-      --light:#F5F7F8;
-      --radius:0.75rem;
-      --gap:1rem;
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    }
-    *,*::before,*::after{box-sizing:border-box}
-    body{margin:0;color:#222;background:#fff;line-height:1.5;}
-    a{color:inherit;text-decoration:none}
-    .btn{display:inline-block;padding:.75rem 2rem;border-radius:var(--radius);font-weight:600;white-space:nowrap}
-    .btn--primary{background:var(--accent);color:#fff}
-    
-    .btn--secondary{background:#fff;color:var(--accent);border:2px solid var(--accent)}
-    .skip-link{position:absolute;top:-4rem;left:1rem;background:#000;color:#fff;padding:.5rem 1rem;z-index:999}
-    .skip-link:focus{top:.5rem}
-    /* Header */
-    header{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.05)}
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:.5rem 1rem}
-    nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
-    nav a{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-    .hamburger{display:none;background:none;border:2px solid transparent;padding:.25rem;border-radius:var(--radius)}
-    .hamburger:focus{outline:3px solid var(--accent)}
-    /* Hero */
-    .hero{min-height:80vh;display:grid;place-items:center;text-align:center;background:url("images/hero.webp") center/cover no-repeat}
-    .hero-inner{backdrop-filter:brightness(.9);padding:2rem}
-    .tagline{font-style:italic;color:#fff;margin:0 0 .5rem}
-    .hero h1{font-size:clamp(2rem,5vw,4rem);font-weight:800;color:#fff;margin:.25rem 0}
-    .hero span{color:var(--primary)}
-    .accent{color:var(--accent);}   /* turns “YOU” blue (#074E78) */
-
-    /* Intro */
-    #about{max-width:60ch;margin:4rem auto;text-align:center;padding:0 1rem}
-    /* Join section */
-    #join{background:var(--light);padding:4rem 1rem}
-    #join .wrap{max-width:900px;margin:0 auto}
-    .join-grid{display:grid;gap:var(--gap);grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    figure{margin:0}
-    figcaption{font-size:.875rem;color:#444;margin-top:.5rem}
-    blockquote{margin:0;font-style:italic}
-    /* Footer */
-    footer{background:var(--primary);color:#fff;text-align:center;padding:2rem 1rem}
-    .footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:var(--gap);align-items:center;justify-content:space-between}
-    .footer-links a{display:inline-block;margin:.25rem 1rem}
-    /* ≤768 px breakpoint */
-    @media(max-width:768px){
-      nav ul{--state:0;position:absolute;top:3.5rem;right:1rem;background:#fff;flex-direction:column;padding:1rem;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,.15);max-height:0;overflow:hidden;transition:max-height .3s ease}
-      nav ul[aria-expanded="true"]{max-height:20rem}
-      .hamburger{display:inline-block}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Departures-board ticker -->
+  <div class="topbar" role="presentation">
+    FEC · 上海 SHANGHAI PVG · EST. 2015 · <b>NOW BOARDING: 1 TEACHER</b> · DEPARTURE LATE 2026
+  </div>
+
   <!-- ===== Header ===== -->
-  <header>
+  <header class="site-header">
     <div class="nav-wrap">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="Flying English Center logo" width="120" height="48">
+      <a class="brand" href="index.html" aria-label="Flying English Center — home">
+        <img src="images/logo.png" alt="Flying English Center logo">
       </a>
-
-      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
-        <span aria-hidden="true">☰</span><span class="visually-hidden">Menu</span>
+      <button class="hamburger" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
       </button>
-
-      <nav id="primary-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="story.html">Our Story</a></li>
-          
-              <!-- EXTERNAL REVIEWS LINK -->
-    <li>
-        <a href="https://www.gooverseas.com/teach-abroad/china/program/219884"
-           target="_blank" rel="noopener">
-          Reviews
-        </a>
-      </li>
           <li><a href="testimonials.html">Testimonials</a></li>
-          <li><a href="#join" class="btn btn--secondary">Join the Team</a></li>
+          <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews</a></li>
+          <li><a href="jobs.html" class="btn btn--gold">Apply to teach</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <div class="nav-backdrop"></div>
 
-  <!-- ===== Main ===== -->
   <main id="main">
-    <!-- Hero -->
-    <section class="hero">
+    <!-- ===== Hero: kinetic-type entrance ===== -->
+    <section class="hero hero--kinetic">
       <div class="hero-inner">
-        <p class="tagline">Where learning takes flight</p>
-        <h1>STARTS WITH <span class="accent">YOU</span></h1>
-        <a href="#about" class="btn btn--primary">Learn&nbsp;More</a>
+        <p class="kicker kicker--light">Now hiring · Downtown Shanghai</p>
+        <h1>
+          <span class="line"><span>Learning takes</span></span>
+          <span class="line"><span>flight — and so</span></span>
+          <span class="line"><span>do <span class="lift">you<i class="lift-underline" aria-hidden="true"></i></span>.</span></span>
+        </h1>
+        <p class="lede">Flying English is a boutique school in the heart of Shanghai, teaching small classes of curious kids. We’re hiring one more teacher to join the team — whether you’re already in China or planning your move.</p>
+        <div class="hero-cta">
+          <a href="jobs.html" class="btn btn--gold">See the opening <span class="arr">→</span></a>
+          <a href="story.html" class="btn btn--on-navy">Our story</a>
+        </div>
+
+        <!-- boarding pass of the offer at a glance -->
+        <div class="boardingpass" aria-label="The role at a glance">
+          <div class="bp-cell"><span class="k">Destination</span><span class="v">Shanghai 🇨🇳</span></div>
+          <div class="bp-cell"><span class="k">Role</span><span class="v">English Teacher</span></div>
+          <div class="bp-cell"><span class="k">Class size</span><span class="v">4–6 kids</span></div>
+          <div class="bp-cell"><span class="k">Hours / wk</span><span class="v">18–22</span></div>
+          <div class="bp-cell"><span class="k">Seats open</span><span class="v">1</span></div>
+        </div>
       </div>
     </section>
 
-    <!-- Intro -->
-     <!-- Intro -->
-    <section id="about">
-      <p>We make learning fun. Through interactive, hands-on lessons, we inspire young students to fall in love with learning — and keep that spark for life.</p>
+    <!-- ===== Mission strip ===== -->
+    <section class="section center">
+      <div class="wrap reveal">
+        <p class="kicker">Why we exist</p>
+        <h2 style="max-width:18ch;margin-inline:auto">We make learning something kids actually look forward to.</h2>
+        <p class="lede center">Through hands-on, playful lessons in classes of just four to six, we help young learners fall for English early — and keep that spark for life. Doing that well takes teachers with real energy. That’s where you come in.</p>
+      </div>
     </section>
 
-    <!-- Join the Team -->
-    <section id="join">
+    <!-- flight-path divider -->
+    <div class="wrap" aria-hidden="true">
+      <svg class="fp-divider" viewBox="0 0 1000 40" preserveAspectRatio="none">
+        <path d="M 0 30 C 300 4, 700 4, 1000 30"/>
+        <circle class="dot" cx="0" cy="30" r="4"/><circle class="dot" cx="1000" cy="30" r="4"/>
+      </svg>
+    </div>
+
+    <!-- ===== Why teach here (value grid) ===== -->
+    <section class="section section--paper">
       <div class="wrap">
-        <h2>We’re Hiring!</h2>
+        <div class="reveal" style="max-width:46ch">
+          <p class="kicker">The short version</p>
+          <h2>A real job, a real city, a team that becomes family.</h2>
+        </div>
+        <div class="grid grid-3 reveal" style="margin-top:2.5rem">
+          <article class="card value">
+            <span class="glyph" aria-hidden="true">🧩</span>
+            <div><h3>Tiny classes</h3><p>Four to six students, ages 3–12. You learn every name and actually teach — no crowd control.</p></div>
+          </article>
+          <article class="card value">
+            <span class="glyph" aria-hidden="true">🏙️</span>
+            <div><h3>Live in Shanghai</h3><p>Based in Huangpu, downtown. Two consecutive weekdays off to explore one of the world’s great cities.</p></div>
+          </article>
+          <article class="card value">
+            <span class="glyph" aria-hidden="true">🧳</span>
+            <div><h3>We get you there</h3><p>Housing allowance, health insurance, full arrival support, and training from day one. Beginners welcome.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <p>Flying English has two teaching positions starting in late 2026 — ideal for enthusiastic, bubbly people who love working with kids. Teach at our English language center in Shanghai and experience life in China. Beginners and experienced teachers are both welcome to apply.</p>
+    <!-- ===== Stats ===== -->
+    <section class="section section--navy">
+      <div class="wrap">
+        <p class="kicker kicker--light">Flying English by the numbers</p>
+        <div class="stats reveal" style="margin-top:1.5rem">
+          <div class="stat"><div class="n">2015</div><div class="l">Founded</div></div>
+          <div class="stat"><div class="n">1,000+</div><div class="l">Kids taught</div></div>
+          <div class="stat"><div class="n">4–6</div><div class="l">Per class</div></div>
+          <div class="stat"><div class="n">¥30k+</div><div class="l">Many teachers / mo</div></div>
+        </div>
+      </div>
+    </section>
 
-        <p>It's the perfect chance to put your energy to work in a fun, friendly environment. You'll teach evenings and weekends with two consecutive weekdays off — around 18–22 hours a week, in small classes of just 4–6 students aged 3–12.</p>
-
-        <h3>What our teachers say</h3>
-
-        <div class="join-grid">
-             <figure>
-                   <img src="images/connor_debra.jpg"
-                        alt="Connor teaching at Flying English"
-                        width="400" loading="lazy">
-                   <blockquote>
-                     “Home In Shanghai! After moving to Shanghai … If you are looking for a family and a place to grow and teach in Shanghai, look no further.”
-                   </blockquote>
-                   <figcaption>— Connor</figcaption>
-                 </figure>
-
-          <figure>
-            <img src="images/yaye.jpg" alt="Yaye with her Tot Talk class" width="400" loading="lazy">
-            <blockquote>
-              “Impressions – working at FE. I’ve worked at Flying English for almost a year now … Management is supportive in providing training to assist your teaching.”
-            </blockquote>
-            <figcaption>— Yaye</figcaption>
+    <!-- ===== Voices ===== -->
+    <section class="section">
+      <div class="wrap">
+        <div class="reveal" style="max-width:46ch">
+          <p class="kicker">In their words</p>
+          <h2>People come to teach and stay for the family.</h2>
+        </div>
+        <div class="grid grid-2 reveal" style="margin-top:2.5rem">
+          <figure class="quote">
+            <div class="quote-media" style="margin-bottom:1rem">
+              <img src="images/connor_debra.jpg" alt="Connor teaching a young class at Flying English" loading="lazy">
+              <blockquote style="font-size:var(--t-1)">Home in Shanghai. If you’re looking for a family and a place to grow and teach, look no further.</blockquote>
+            </div>
+            <figcaption>— Connor, Foreign Teacher</figcaption>
+          </figure>
+          <figure class="quote">
+            <div class="quote-media" style="margin-bottom:1rem">
+              <img src="images/yaye.jpg" alt="Yaye with her Tot Talk class" loading="lazy">
+              <blockquote style="font-size:var(--t-1)">I’ve been at Flying English almost a year. Management is genuinely supportive, with training to help you teach well.</blockquote>
+            </div>
+            <figcaption>— Yaye, Foreign Teacher</figcaption>
           </figure>
         </div>
-
-        <p style="text-align:center;margin-top:2rem">
-          <a href="mailto:flyingenglish@163.com" class="btn btn--primary">Apply Now</a>
-        </p>
+        <p class="center" style="margin-top:2rem"><a href="testimonials.html" class="btn btn--ghost">Watch teacher videos <span class="arr">→</span></a></p>
       </div>
     </section>
   </main>
 
   <!-- ===== Footer ===== -->
-  <footer>
-    <div class="footer-inner">
-      <p>© 2026 Flying English Center</p>
-  
-      <div class="footer-links">
-        <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener">
-          <img src="images/Instagram_logo.svg" alt="Instagram" width="24" height="24" style="vertical-align:middle">
-        </a>
-  
-        <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener">
-          <img src="images/LinkedIn_logo.svg"  alt="LinkedIn"  width="24" height="24" style="vertical-align:middle">
-        </a>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="f-brand">
+          <img src="images/logo.png" alt="Flying English Center logo">
+          <p>A boutique English school in downtown Shanghai since 2015. Where learning — and teachers — take flight.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/flyingenglish/?hl=en" target="_blank" rel="noopener" aria-label="Flying English on Instagram"><img src="images/Instagram_logo.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/flying-english/?originalSubdomain=cn" target="_blank" rel="noopener" aria-label="Flying English on LinkedIn"><img src="images/LinkedIn_logo.svg" alt=""></a>
+          </div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="jobs.html">Join the Team</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="https://www.gooverseas.com/teach-abroad/china/program/219884" target="_blank" rel="noopener">Reviews ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Find us</h4>
+          <address style="font-style:normal;line-height:1.8">
+            Building 1, 1236 Qu Xi Road<br>Huangpu District<br>Shanghai 200011, CN<br><br>
+            <a href="mailto:flyingenglish@163.com">flyingenglish@163.com</a>
+          </address>
+        </div>
       </div>
-  
-      <a href="index.html"><img src="images/logo.png" alt="" width="120" height="48"></a>
+      <div class="footer-bottom">
+        <span>© 2026 Flying English Center</span>
+        <span>上海 · Shanghai</span>
+      </div>
     </div>
   </footer>
 
