@@ -26,7 +26,7 @@ The site uses an aviation / "departures board" theme (the brand is *Flying* Engl
 
 ## Content facts (keep accurate across pages)
 
-- **One** teaching position open, starting **late 2026**. (This count appears in: home hero boarding pass + button, the topbar `NOW BOARDING: 1 TEACHER` on all four pages, jobs hero + meta/OG, testimonials CTA.)
+- **One** teaching position open, starting **early 2027**. (This count appears in: home hero boarding pass + button, the topbar `NOW BOARDING: 1 TEACHER` on all four pages, jobs hero + meta/OG, testimonials CTA.)
 - **18–22** teaching hrs/week, classes of **4–6** students ages **3–12**, evenings + weekends, two weekdays off.
 - Pay **¥21k–26k net/month (≈ US $2.9k–3.6k** at ~7.2 CNY/USD). Apply: `flyingenglish@163.com`.
 
