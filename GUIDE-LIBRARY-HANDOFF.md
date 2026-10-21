@@ -1,3 +1,23 @@
+# Published state — 21 October 2026 (Asia/Shanghai)
+
+The latest approved redesign and integrated guide collection are LIVE at https://flyingenglish-shanghai.com/guides/ . The user's integration/publication instruction supersedes all historical local-only/no-push notes below.
+
+- Integrated site commit: `cd71aa7d9c67145dddb922555a13345046bed40c`, pushed to `main`.
+- GitHub Pages workflow: https://github.com/gderiddershanghai/school-website/actions/runs/39565547463 — completed successfully for that commit.
+- Live HTTP verification: all 27 canonical pages returned 200, including all 20 guide articles and the searchable index. Canonicals matched each requested URL. Root sitemap returned 200 with 27 unique URLs; robots.txt returned 200 and declared the root sitemap. Homepage Guides navigation was present.
+- Representative live guide CSS/JS, metro artwork, local font and Shanghai carousel artwork returned 200. The library was inspected in the production browser at desktop and mobile widths; no page overflow.
+- Actual downloaded Pages artifact: 98 files, 27 HTML pages, 36.61 MiB. No research, audit evidence, tools, handoff Markdown, design experiments or images/qr files were present. Sample live requests for internal handoff/source/tool/audit/QR-generation paths returned 404.
+- Local checks: supplied check-guides.py (21 guide pages, 20 articles, 569 local references), check-guide-interactions.cjs, JS syntax, and new check-public-site.py (27 staged pages, 741 local references, 27 sitemap URLs) passed.
+- Rendered QA covered desktop/mobile guide index, long comparison tables, illustrated metro article and budget calculator; navigation, keyboard focus, table scrolling, contents anchors, search/category/no-results/clear and calculator total/invalid/reset. Fixed a mobile flex-width issue so tables scroll inside their container. Static HTML contains all article text and links without JavaScript; no separate browser JS-disable emulation was performed.
+- The six school pages have Guides links in navigation/footer; jobs has a contextual guide link. The guide generator preserves matching local DM Sans, school branding and navigation. Root sitemap includes interview.html and teacher-quiz.html as well as the guides.
+- Current homepage Shanghai carousel uses ten existing people-free illustrations with location captions. Teacher interview intro removed; historical video dates retained. Candidate questions and embedded quiz pages included in publication. The external quiz logo is managed by the separate quiz project.
+- Unrelated research, original audit evidence, design experiments, QR work and unused initial carousel images remain local and uncommitted. Do not bulk-stage them.
+- Evidence kept locally: `_site/live-verification.json`; deployed artifact `/tmp/flying-pages-cd71aa7/artifact.tar`; screenshots `C:/Users/ginge/.codex/visualizations/2026/10/20/01a15984-4583-7150-bc1e-d774ef958604/guides-live-{desktop,mobile}.jpg`.
+
+No search-engine submission, external listing change, outreach or measured indexing/ranking/traffic/AI-citation result is claimed. A documentation-only follow-up commit records this result; the deployed website content remains the integrated commit above.
+
+---
+
 # Integration verification — 21 October 2026
 
 Integrated with the current mint/wave/DM Sans design. Navigation and contextual links added; 27 canonical public URLs in the root sitemap. Explicit Pages staging includes guides and excludes research, tools, handoffs, design experiments and images/qr.
