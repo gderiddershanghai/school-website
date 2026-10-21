@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flyingenglish-shanghai.com/sitemap.xml

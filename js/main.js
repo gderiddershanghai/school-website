@@ -1,5 +1,6 @@
 // js/main.js — Flying English Center
-// Shared behaviour for all pages: off-canvas mobile nav, scroll reveals, gallery lightbox.
+// Content stays visible without JavaScript. JS enhances the mobile menu and gallery.
+document.documentElement.classList.add('js');
 
 /* ───────── Off-canvas mobile nav ───────── */
 const hamburger = document.querySelector('.hamburger');
@@ -20,22 +21,6 @@ if (hamburger && nav){
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
 }
 
-/* ───────── Reveal-on-scroll ───────── */
-const reveals = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window){
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(en => {
-      if (en.isIntersecting){
-        en.target.classList.add('in');
-        obs.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-  reveals.forEach(el => io.observe(el));
-} else {
-  reveals.forEach(el => el.classList.add('in')); // fallback: show everything
-}
-
 /* ───────── Gallery lightbox ───────── */
 const lightbox = document.querySelector('.lightbox');
 if (lightbox){
@@ -50,11 +35,13 @@ if (lightbox){
     if (lbCap) lbCap.textContent = alt || '';
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
     if (lbClose) lbClose.focus();
   };
   const closeLb = () => {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
     lbImg.removeAttribute('src');
     if (lastFocus) lastFocus.focus();
   };
@@ -72,5 +59,48 @@ if (lightbox){
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLb();
+    if (e.key === 'Tab' && lightbox.classList.contains('open')) {
+      e.preventDefault();
+      lbClose.focus();
+    }
   });
 }
+
+// Load third-party players only when requested; local posters and direct links remain available.
+document.querySelectorAll('[data-video]').forEach(button => {
+  button.addEventListener('click', () => {
+    const frame = document.createElement('iframe');
+    frame.src = `https://player.vimeo.com/video/${button.dataset.video}?autoplay=1`;
+    frame.title = button.dataset.title;
+    frame.allow = 'autoplay; fullscreen; picture-in-picture';
+    frame.allowFullscreen = true;
+    button.parentElement.append(frame);
+    button.remove();
+    frame.focus();
+  });
+});
+
+// Manual carousel: no automatic motion, with native touch swiping.
+document.querySelectorAll('.city-carousel').forEach(carousel => {
+  const track = carousel.querySelector('.city-track');
+  const slides = [...track.querySelectorAll('figure')];
+  const count = carousel.querySelector('.city-count');
+  const current = () => Math.round(track.scrollLeft / track.clientWidth);
+  const go = direction => {
+    const index = (current() + direction + slides.length) % slides.length;
+    track.scrollTo({left: index * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  };
+  carousel.querySelector('[data-city-prev]').addEventListener('click', () => go(-1));
+  carousel.querySelector('[data-city-next]').addEventListener('click', () => go(1));
+  track.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      go(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+  let timer;
+  track.addEventListener('scroll', () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { count.textContent = `${current() + 1} / ${slides.length}`; }, 120);
+  }, {passive:true});
+});
