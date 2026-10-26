@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import quote, unquote, urlsplit, parse_qs
 HERE = Path(__file__).resolve().parent
-STATUSES = ('New', 'To interview', 'Interviewed', 'Offer', 'Hired', 'On hold', 'Rejected')
+STATUSES = ('New', 'To interview', 'Interviewed', 'Offer', 'Hired', 'On hold', 'Not qualified', 'Rejected')
 LEGACY = {'Reviewing':'New', 'Interview':'To interview', 'Offered':'Offer'}
 JIM_RECRUITER = 'Jim Althans \u00b7 Gold Star'
 MAX_VIDEO = 250 * 1024 * 1024
@@ -234,7 +234,7 @@ class Handler(BaseHTTPRequestHandler):
                     stamp=now_iso()
                     if previous!=status:
                         review.setdefault('statusHistory',[]).append({'from':previous,'to':status,'at':stamp})
-                        if status in ('Offer','Hired','Rejected') and 'decisionAt' not in data: review['decisionAt']=stamp
+                        if status in ('Offer','Hired','Not qualified','Rejected') and 'decisionAt' not in data: review['decisionAt']=stamp
                     review.update({'status':status,'updatedAt':stamp})
                     for key in ('interviewAt','decisionAt','notes','rejectionReason'):
                         if key in data: review[key]=data[key] or None

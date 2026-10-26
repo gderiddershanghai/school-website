@@ -48,3 +48,5 @@ header .private,#logout,.intro h1,.intro .eyebrow,footer{display:none!important}
 .intro #summary{font-size:18px;font-weight:700;color:var(--c-ink);margin:0}
 main{padding-top:28px}.intro{margin-bottom:20px}#notice:empty{display:none}
 header #language{margin-left:auto}
+
+[data-status="Not qualified"]{--status-bg:#f1e6d3;--status-ink:#75511e}

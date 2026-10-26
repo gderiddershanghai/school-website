@@ -179,6 +179,15 @@ class SecurityTests(unittest.TestCase):
         self.assertEqual(self.request('/documents/one/doc')[0],200)
         self.assertEqual(self.request('/api/review','POST',{'candidateId':'one','status':'Hired'})[0],403)
 
+    def test_not_qualified_persists_with_reason(self):
+        self.login()
+        payload={'candidateId':'one','status':'Not qualified','rejectionReason':{'en':'Insufficient post-graduation experience'}}
+        self.assertEqual(self.request('/api/review','POST',payload)[0],200)
+        candidate=json.loads(self.request('/api/candidates')[2])['candidates'][0]
+        self.assertEqual(candidate['status'],'Not qualified')
+        self.assertEqual(candidate['rejectionReason'],payload['rejectionReason'])
+        self.assertTrue(candidate['decisionAt'])
+
     def test_rate_limit(self):
         for _ in range(10):self.request('/api/login','POST',{'code':'wrong'})
         self.assertEqual(self.request('/api/login','POST',{'code':'wrong'})[0],429)
