@@ -25,6 +25,7 @@ jobs:
           mkdir -p _site
           cp index.html story.html jobs.html testimonials.html interview.html teacher-quiz.html robots.txt sitemap.xml _site/
           cp -R css js guides _site/
+          cp -R recruitment _site/
           mkdir -p _site/images
           find images -maxdepth 1 -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" -o -name "*.svg" \) -exec cp {} _site/images/ \;
           cp -R images/optimized _site/images/

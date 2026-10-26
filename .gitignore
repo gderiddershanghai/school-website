@@ -1,2 +1,5 @@
 _site/
 __pycache__/
+
+# Local recruitment records and access secrets
+/recruitment-private/

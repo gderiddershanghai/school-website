@@ -1,0 +1,44 @@
+:root{font-family:Arial,Helvetica,sans-serif;color:#123347;background:#f6f6f1}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button,a,input,select{outline-offset:4px}button,a{cursor:pointer}button{border:1px solid #d3dcd9;border-radius:7px;padding:11px 16px;color:inherit;background:white}button:hover,a:hover{filter:brightness(.94)}[hidden]{display:none!important}header{display:flex;align-items:center;gap:18px;padding:22px 5vw;border-bottom:1px solid #dce2dc;background:white}.brand{font-size:32px;font-weight:900;text-decoration:none;color:#123347;letter-spacing:-4px}.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:700;color:#557166;margin:0 0 9px}header strong{font-size:17px}.private{margin-left:auto;color:#587767;background:#ecf3eb;font-size:12px;padding:8px 12px;border-radius:20px}main{max-width:1400px;margin:auto;padding:48px 5vw 80px}h1{font-family:Georgia,serif;font-size:42px;line-height:1.1;font-weight:400;margin:12px 0 18px}h2{font-family:Georgia,serif;font-size:31px;font-weight:400;margin:0 0 32px}p{line-height:1.6}#login{max-width:520px;padding:40px 0 65px;margin:auto}#login h1{font-size:52px}#login>p:not(.eyebrow){color:#64756f}form{margin:30px 0}label{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700}input,select{padding:12px 14px;border:1px solid #ccd7d0;border-radius:6px;background:white;color:#123347}form input{width:100%;margin:9px 0 14px}.primary{background:#153f39;color:white;width:100%;padding:14px}.muted{font-size:12px}#login-error{color:#a53528}.intro{display:flex;align-items:center;justify-content:space-between;gap:20px}.intro p:not(.eyebrow){font-size:13px;color:#62736d}.filters{display:flex;align-items:end;gap:18px;margin:24px 0}.filters label:first-child{flex:1}.filters label:nth-child(2){width:220px}.filters span{font-size:12px;color:#62736d;white-space:nowrap;padding-bottom:14px}.desk{display:grid;grid-template-columns:320px minmax(0,1fr);gap:22px;align-items:start}#candidates{display:flex;flex-direction:column;gap:8px}.candidate{display:flex;align-items:center;gap:14px;width:100%;padding:18px;text-align:left;background:#fff;border-color:#e0e5df}.candidate.active{background:#e8eee5;border-color:#64816a;box-shadow:inset 3px 0 #426549}.avatar{display:grid;place-items:center;background:#f1e6cf;width:42px;height:42px;border-radius:50%;font-family:Georgia,serif;flex-shrink:0}.candidate-info{display:flex;flex-direction:column;gap:6px;flex:1;min-width:0}.candidate strong{font-size:14px}.candidate small,small{font-size:11px;color:#63766b;line-height:1.5}#detail{border:1px solid #dfe6dd;border-radius:10px;background:white;padding:30px}.section-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#617469;margin:28px 0 10px}.document{display:flex;align-items:center;gap:16px;padding:17px 0;border-bottom:1px solid #e9eee7}.document-info{flex:1;min-width:0}.document-info strong{display:block;overflow-wrap:anywhere;font-size:13px;margin-bottom:6px}a{color:#2e6655;font-size:12px}.email{padding:13px 0;border-bottom:1px solid #e9eee7}.email strong{display:block;font-size:13px;margin-bottom:5px;overflow-wrap:anywhere}.email a{margin-left:14px}.empty{padding:30px;color:#667970}#notice{font-size:12px;color:#7b5c28}footer{border-top:1px solid #dce2dc;padding:22px 5vw;font-size:11px;color:#6a7a72;display:flex;justify-content:space-between}@media(max-width:850px){.desk{grid-template-columns:1fr}#candidates{max-height:330px;overflow:auto}.private{display:none}.intro{align-items:start}h1{font-size:34px}.filters{flex-wrap:wrap}.filters label:nth-child(2){width:180px}.document{flex-wrap:wrap}#detail{padding:22px}header{padding:18px 5vw}header #logout{margin-left:auto}}@media(max-width:450px){.intro{display:block}.filters label{width:100%!important;flex:auto!important}#login h1{font-size:40px}.document-info{flex-basis:100%}footer span{display:none}}
+
+.status-badge{display:inline-block;align-self:start;background:#e4eee5;color:#345d43;border-radius:20px;font-size:10px;padding:3px 8px}.review-panel{display:flex;align-items:end;gap:12px;flex-wrap:wrap}.review-panel label{min-width:180px}.review-panel p{flex-basis:100%;margin:0}.visa-review{background:#fff5dc;border-left:3px solid #bd913c;padding:16px;margin:20px 0;font-size:13px}.visa-review p{margin:8px 0}.filters label:nth-child(2){width:180px}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}.profile-grid p{margin:6px 0}.wide{width:100%;grid-column:1/-1}.education{border-bottom:1px solid #e7ece6;padding:12px 0}.education p{font-size:13px}.evidence{font-size:11px;color:#61756b;margin:10px 0}.evidence p{white-space:pre-wrap;max-height:180px;overflow:auto}.review-panel{border-top:1px solid #e5ebe4;padding-top:22px}.review-panel textarea{font:inherit;padding:12px;border:1px solid #ccd7d0;border-radius:6px;resize:vertical}.history{margin:20px 0;font-size:13px}.video-upload{margin-top:20px;background:#f3f5ef;padding:20px;border-radius:8px}.video-upload input{width:100%;margin-bottom:12px}.video-upload p{font-size:12px}video{width:100%;max-height:460px;background:#172a24;border-radius:8px;display:block;margin:14px 0}#language{margin-left:auto}.private+#language{margin-left:0}@media(max-width:850px){#language{margin-left:auto}.review-panel label{width:100%}}
+
+[data-status="New"]{--status-bg:#edf0f4;--status-ink:#435166}
+[data-status="To interview"]{--status-bg:#dcecff;--status-ink:#174b87}
+[data-status="Interviewed"]{--status-bg:#eee3ff;--status-ink:#643398}
+[data-status="Offer"]{--status-bg:#fff0c2;--status-ink:#765000}
+[data-status="Hired"]{--status-bg:#d7f1df;--status-ink:#21643b}
+[data-status="On hold"]{--status-bg:#ffead6;--status-ink:#884611}
+[data-status="Rejected"]{--status-bg:#fbe0e3;--status-ink:#9a2638}
+.status-badge{background:var(--status-bg);color:var(--status-ink);font-weight:700;font-size:11px}
+.candidate{border-left:4px solid var(--status-ink)}
+.review-panel select[data-status]{background:var(--status-bg);color:var(--status-ink)}
+.avatar{overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.portrait-large{width:92px;height:92px;float:right;margin:0 0 18px 18px;font-size:24px}
+#detail>.status-badge{margin-bottom:16px}
+
+.rejection-reason{font-size:12px;line-height:1.45;color:#7e3440;white-space:normal;overflow-wrap:anywhere}
+
+/* Shared school brand tokens and locally hosted fonts. */
+:root{font-family:var(--f-body);color:var(--c-ink);background:#f7faf9}
+body{font:400 16px/1.65 var(--f-body);-webkit-font-smoothing:antialiased}
+header{background:var(--c-paper);border-color:var(--c-line)}
+.brand{letter-spacing:normal}.brand img{width:49px;height:43px;object-fit:contain;mix-blend-mode:multiply}
+main{max-width:var(--maxw)}
+h1,h2,#login h1{font-family:var(--f-display);font-weight:700;letter-spacing:-.035em;line-height:1.08}
+h1{font-size:clamp(2.2rem,4vw,3.5rem)}h2{font-size:2rem}
+.eyebrow,.section-label{color:var(--c-sky);letter-spacing:.02em}
+button{border-radius:999px;border-color:var(--c-line);font-weight:700}
+button:hover{filter:none;background:var(--c-paper)}
+.primary,.review-panel button{background:var(--c-sky);color:#fff;border-color:transparent}
+.primary:hover,.review-panel button:hover{background:var(--c-ink)}
+input,select,.review-panel textarea{font-family:var(--f-body);color:var(--c-ink);border-color:var(--c-line);border-radius:12px}
+:focus-visible{outline:3px solid var(--c-sky);outline-offset:4px}
+.candidate{border-radius:18px;border-color:var(--c-line);border-left-color:var(--status-ink)}
+.candidate.active{background:var(--c-paper);border-color:var(--c-sky);border-left-color:var(--status-ink);box-shadow:inset 2px 0 var(--c-sky)}
+.avatar{font-family:var(--f-body);background:#fbefb9}
+#detail{border-color:var(--c-line);border-radius:26px}
+a{color:var(--c-sky)}.private{background:#d5eae2;color:var(--c-sky)}
+.muted,.candidate small,small,.evidence,.intro p:not(.eyebrow),.filters span,#login>p:not(.eyebrow){color:var(--c-muted)}
+footer{color:var(--c-muted);border-color:var(--c-line);background:var(--c-paper)}
+@media(max-width:450px){header{gap:10px}.brand img{width:38px}header strong{font-size:15px}header button{padding:10px 12px}}
