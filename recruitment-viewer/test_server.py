@@ -172,8 +172,9 @@ class SecurityTests(unittest.TestCase):
         self.cookie=headers['Set-Cookie'].split(';')[0]
         candidates=json.loads(self.request('/api/candidates')[2])['candidates']
         self.assertEqual([c['id'] for c in candidates],['one'])
-        for field in ['notes','rejectionReason','statusHistory','visaReview']:
+        for field in ['notes','statusHistory','visaReview']:
             self.assertNotIn(field,candidates[0])
+        self.assertEqual(candidates[0]['rejectionReason'],{'en':'private'})
         self.assertEqual(self.request('/documents/other/cv')[0],404)
         self.assertEqual(self.request('/documents/one/doc')[0],200)
         self.assertEqual(self.request('/api/review','POST',{'candidateId':'one','status':'Hired'})[0],403)

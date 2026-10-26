@@ -42,3 +42,9 @@ a{color:var(--c-sky)}.private{background:#d5eae2;color:var(--c-sky)}
 .muted,.candidate small,small,.evidence,.intro p:not(.eyebrow),.filters span,#login>p:not(.eyebrow){color:var(--c-muted)}
 footer{color:var(--c-muted);border-color:var(--c-line);background:var(--c-paper)}
 @media(max-width:450px){header{gap:10px}.brand img{width:38px}header strong{font-size:15px}header button{padding:10px 12px}}
+
+/* Keep the workspace focused on candidates and review information. */
+header .private,#logout,.intro h1,.intro .eyebrow,footer{display:none!important}
+.intro #summary{font-size:18px;font-weight:700;color:var(--c-ink);margin:0}
+main{padding-top:28px}.intro{margin-bottom:20px}#notice:empty{display:none}
+header #language{margin-left:auto}

@@ -62,7 +62,7 @@ class Handler(BaseHTTPRequestHandler):
         if not token: return None
         with self.server.lock: return self.server.session_scopes.get(token)
     def can_view(self, candidate):
-        return self.scope()=='staff' or (self.scope()=='jim' and candidate.get('recruiter')==JIM_RECRUITER)
+        return self.scope()=='staff' or (self.scope()=='jim' and candidate.get('recruiter')==JIM_RECRUITER and candidate.get('source')!='direct')
     def can_view_id(self, candidate_id):
         return any(str(c.get('id'))==candidate_id and self.can_view(c) for c in self.manifest().get('candidates',[]))
     def manifest(self):
@@ -108,8 +108,9 @@ class Handler(BaseHTTPRequestHandler):
                 jim_view=self.scope()=='jim' or url.path=='/api/jim/candidates'
                 data={'importedAt':manifest.get('importedAt'), 'candidates':[], 'readOnly':jim_view, 'scope':'jim' if jim_view else 'staff'}
                 for source in manifest.get('candidates',[]):
-                    if not self.can_view(source) or (jim_view and source.get('recruiter')!=JIM_RECRUITER): continue
+                    if not self.can_view(source) or (jim_view and (source.get('recruiter')!=JIM_RECRUITER or source.get('source')=='direct')): continue
                     candidate={key:source.get(key) for key in ('id','name','recruiter','profile','visaReview')}
+                    if source.get('source')=='direct': candidate['recruiter']='Direct applicant'
                     dates=[e.get('receivedAt') for e in source.get('emails',[]) if e.get('receivedAt')]
                     candidate['receivedAt']=min(dates) if dates else None
                     review=reviews.get(str(source.get('id')), {})
@@ -135,7 +136,7 @@ class Handler(BaseHTTPRequestHandler):
                             for child in value: scrub_evidence(child)
                     scrub_evidence(candidate.get('profile'))
                     if jim_view:
-                        for key in ('notes','statusHistory','visaReview','rejectionReason'): candidate.pop(key,None)
+                        for key in ('notes','statusHistory','visaReview'): candidate.pop(key,None)
                         def remove_internal_evidence(value):
                             if isinstance(value,dict):
                                 for key in ('sourceText','sourceDocumentId','sourceEmailId','sourceUrl'): value.pop(key,None)

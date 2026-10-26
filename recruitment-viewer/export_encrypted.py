@@ -36,13 +36,14 @@ def build():
             files[key]={'contentType':doc.get('contentType','application/octet-stream'),'data':base64.b64encode(raw).decode()}
             return key
         for source in manifest['candidates']:
-            if role=='jim' and source.get('recruiter')!=JIM_RECRUITER: continue
+            if role=='jim' and (source.get('recruiter')!=JIM_RECRUITER or source.get('source')=='direct'): continue
             c=copy.deepcopy({k:source.get(k) for k in ('id','name','recruiter','profile')});scrub(c['profile'])
+            if source.get('source')=='direct': c['recruiter']='Direct applicant'
             dates=[e['receivedAt'] for e in source.get('emails',[]) if e.get('receivedAt')];c['receivedAt']=min(dates) if dates else None
             review=reviews.get(c['id'],{});c['status']=status_value(review.get('status','New'))
-            for k in ('interviewAt','decisionAt'): c[k]=review.get(k)
+            for k in ('interviewAt','decisionAt','rejectionReason'): c[k]=review.get(k)
             if role=='staff':
-                for k in ('notes','rejectionReason'): c[k]=review.get(k)
+                for k in ('notes',): c[k]=review.get(k)
             c['documents']=[]
             for d in source.get('documents',[]):
                 if d.get('kind')=='resume': c['documents'].append({'id':d['id'],'name':d['name'],'available':True,'asset':asset(d)})
@@ -69,7 +70,6 @@ def build():
     for name in ('dm-sans-regular.ttf','dm-sans-bold.ttf'): shutil.copyfile(ROOT/'css/fonts'/name,OUT/'fonts'/name)
     js=(ROOT/'recruitment-viewer/app.js').read_text(encoding='utf-8');js=js[:js.index("$('language').onclick=")]
     js=js.replace("/^\\/jim\\/?$/","/\\/jim\\/?$/")
-    js=js.replace('!readOnly()&&c.status', '!jimPage&&c.status').replace('Private local archive','Encrypted candidate snapshot').replace('本地私密档案','加密候选人快照')
     js=js.replace("$('recruiter').closest('label').hidden=readOnly()","$('recruiter').closest('label').hidden=jimPage")
     js += (ROOT/'recruitment-viewer/encrypted-client.js').read_text(encoding='utf-8')
     (OUT/'app.js').write_text(js,encoding='utf-8')
