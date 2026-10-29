@@ -22,9 +22,11 @@ def build():
     reviews=json.loads((PRIVATE/'review-state.json').read_text(encoding='utf-8-sig'))
     keyfile=PRIVATE/'publish-keys.json'
     keys=json.loads(keyfile.read_text()) if keyfile.exists() else {role:encode(secrets.token_bytes(32)) for role in ('staff','jim')}
-    if not keyfile.exists(): keyfile.write_text(json.dumps(keys));keyfile.chmod(0o600)
+    for role in ('staff','jim','barry'):
+        if role not in keys: keys[role]=encode(secrets.token_bytes(32))
+    keyfile.write_text(json.dumps(keys));keyfile.chmod(0o600)
     OUT.mkdir(exist_ok=True)
-    for role in ('staff','jim'):
+    for role in ('staff','jim','barry'):
         folder=OUT/role;folder.mkdir(exist_ok=True)
         files={};candidates=[]
         def asset(doc):
@@ -37,6 +39,7 @@ def build():
             return key
         for source in manifest['candidates']:
             if role=='jim' and (source.get('recruiter')!=JIM_RECRUITER or source.get('source')=='direct'): continue
+            if role=='barry' and (source.get('recruiter')!='Barry Shorten · Arun' and 'Barry Shorten · Arun' not in source.get('additionalRecruiters',[]) or source.get('source')=='direct'): continue
             c=copy.deepcopy({k:source.get(k) for k in ('id','name','recruiter','profile')});scrub(c['profile'])
             if source.get('source')=='direct': c['recruiter']='Direct applicant'
             dates=[e['receivedAt'] for e in source.get('emails',[]) if e.get('receivedAt')];c['receivedAt']=min(dates) if dates else None
@@ -44,6 +47,7 @@ def build():
             for k in ('interviewAt','decisionAt','rejectionReason'): c[k]=review.get(k)
             if role=='staff':
                 for k in ('notes',): c[k]=review.get(k)
+            c['recruiterComment']=review.get('recruiterComments',{}).get(role)
             c['documents']=[]
             for d in source.get('documents',[]):
                 if d.get('kind')=='resume': c['documents'].append({'id':d['id'],'name':d['name'],'available':True,'asset':asset(d)})
@@ -69,7 +73,7 @@ def build():
     (OUT/'fonts').mkdir(exist_ok=True)
     for name in ('dm-sans-regular.ttf','dm-sans-bold.ttf'): shutil.copyfile(ROOT/'css/fonts'/name,OUT/'fonts'/name)
     js=(ROOT/'recruitment-viewer/app.js').read_text(encoding='utf-8');js=js[:js.index("$('language').onclick=")]
-    js=js.replace("/^\\/jim\\/?$/","/\\/jim\\/?$/")
+    js=js.replace("/^\\/jim\\/?$/","/\\/(jim|barry)\\/?$/")
     js=js.replace("$('recruiter').closest('label').hidden=readOnly()","$('recruiter').closest('label').hidden=jimPage")
     js += (ROOT/'recruitment-viewer/encrypted-client.js').read_text(encoding='utf-8')
     (OUT/'app.js').write_text(js,encoding='utf-8')
