@@ -50,3 +50,5 @@ main{padding-top:28px}.intro{margin-bottom:20px}#notice:empty{display:none}
 header #language{margin-left:auto}
 
 [data-status="Not qualified"]{--status-bg:#f1e6d3;--status-ink:#75511e}
+
+header .brand img{width:98px;height:86px;object-fit:contain;display:block}#login>[data-i18n]{display:none}#login{padding:24px 0}.pair-note{display:block;background:#e6f1f5;color:#245a6a;border-radius:6px;padding:7px 10px;font-size:12px}.contact-panel{overflow-wrap:anywhere}.contact-panel a{font-size:14px}.contact-panel p{margin:8px 0}@media(max-width:450px){header .brand img{width:72px;height:64px}}

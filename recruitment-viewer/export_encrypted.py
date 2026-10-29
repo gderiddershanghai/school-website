@@ -29,18 +29,28 @@ def build():
     for role in ('staff','jim','barry'):
         folder=OUT/role;folder.mkdir(exist_ok=True)
         files={};candidates=[]
+        assetfolder=folder/'assets';assetfolder.mkdir(exist_ok=True)
         def asset(doc):
             path=safe_path(PRIVATE,doc.get('path',''))
             if not path: raise ValueError('Missing or unsafe attachment: '+str(doc.get('id')))
             raw=path.read_bytes()
             if doc.get('sha256') and hashlib.sha256(raw).hexdigest()!=doc['sha256']: raise ValueError('Attachment checksum mismatch')
-            key=secrets.token_hex(16)
-            files[key]={'contentType':doc.get('contentType','application/octet-stream'),'data':base64.b64encode(raw).decode()}
-            return key
+            assetid=hashlib.sha256(raw).hexdigest()
+            target=assetfolder/(assetid+'.bin')
+            aad=('flying-recruitment-asset-v1:'+role+':'+assetid).encode()
+            cipher=AESGCM(decode(keys[role]))
+            if target.exists():
+                old=target.read_bytes()
+                assert cipher.decrypt(old[:12],old[12:],aad)==raw
+            else:
+                nonce=secrets.token_bytes(12)
+                target.write_bytes(nonce+cipher.encrypt(nonce,raw,aad))
+            files[assetid]={'contentType':doc.get('contentType','application/octet-stream'),'url':'assets/'+assetid+'.bin'}
+            return assetid
         for source in manifest['candidates']:
             if role=='jim' and (source.get('recruiter')!=JIM_RECRUITER or source.get('source')=='direct'): continue
             if role=='barry' and (source.get('recruiter')!='Barry Shorten · Arun' and 'Barry Shorten · Arun' not in source.get('additionalRecruiters',[]) or source.get('source')=='direct'): continue
-            c=copy.deepcopy({k:source.get(k) for k in ('id','name','recruiter','profile')});scrub(c['profile'])
+            c=copy.deepcopy({k:source.get(k) for k in ('id','name','recruiter','profile','contact','applicationGroup')});scrub(c)
             if source.get('source')=='direct': c['recruiter']='Direct applicant'
             dates=[e['receivedAt'] for e in source.get('emails',[]) if e.get('receivedAt')];c['receivedAt']=min(dates) if dates else None
             review=reviews.get(c['id'],{});c['status']=status_value(review.get('status','New'))
@@ -48,6 +58,9 @@ def build():
             if role=='staff':
                 for k in ('notes',): c[k]=review.get(k)
             c['recruiterComment']=review.get('recruiterComments',{}).get(role)
+            group=c.get('applicationGroup')
+            if group:
+                group['members']=[member for member in group.get('members',[]) if role=='staff' or any(x['id']==member['id'] and (x.get('recruiter')==(JIM_RECRUITER if role=='jim' else 'Barry Shorten · Arun') or ('Barry Shorten · Arun' in x.get('additionalRecruiters',[]) and role=='barry')) for x in manifest['candidates'])]
             c['documents']=[]
             for d in source.get('documents',[]):
                 if d.get('kind')=='resume': c['documents'].append({'id':d['id'],'name':d['name'],'available':True,'asset':asset(d)})
@@ -63,7 +76,9 @@ def build():
         except Exception: pass
         else: raise AssertionError('Role isolation failed')
         (folder/'snapshot.bin').write_bytes(encrypted)
+        (folder/'index.bin').write_bytes(encrypted)
         html=(ROOT/'recruitment-viewer/index.html').read_text(encoding='utf-8').replace('href="/brand.css"','href="../brand.css"').replace('href="/style.css"','href="../style.css"').replace('src="/app.js"','src="../app.js"').replace('src="/logo.png"','src="../logo.png"').replace('href="/"','href="./"')
+        html=html.replace('../app.js','../app.js?v=20261029b').replace('../style.css','../style.css?v=20261029b').replace('../logo.png','../logo.png?v=20261029b')
         html=html.replace('<title>','<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'self\'; style-src \'self\'; font-src \'self\'; img-src \'self\' blob:; media-src blob:; connect-src \'self\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'"><title>',1)
         (folder/'index.html').write_text(html,encoding='utf-8')
         print(role+': '+str(len(candidates))+' candidates; '+str(len(files))+' encrypted files')
@@ -83,7 +98,7 @@ def build():
     allowed={'index.html','app.js','style.css','brand.css','logo.png','snapshot.bin','dm-sans-regular.ttf','dm-sans-bold.ttf'}
     for p in OUT.rglob('*'):
         if p.is_file():
-            assert p.name in allowed, 'Unexpected public artifact'
+            assert p.name in allowed or p.name=='index.bin' or (p.parent.name=='assets' and p.suffix=='.bin' and len(p.stem)==64), 'Unexpected public artifact'
             if p.suffix in ('.html','.js','.css'):
                 raw=p.read_bytes()
                 for key in keys.values(): assert key.encode() not in raw
