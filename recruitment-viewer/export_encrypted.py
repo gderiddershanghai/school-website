@@ -78,7 +78,7 @@ def build():
         (folder/'snapshot.bin').write_bytes(encrypted)
         (folder/'index.bin').write_bytes(encrypted)
         html=(ROOT/'recruitment-viewer/index.html').read_text(encoding='utf-8').replace('href="/brand.css"','href="../brand.css"').replace('href="/style.css"','href="../style.css"').replace('src="/app.js"','src="../app.js"').replace('src="/logo.png"','src="../logo.png"').replace('href="/"','href="./"')
-        html=html.replace('../app.js','../app.js?v=20261029c').replace('../style.css','../style.css?v=20261029c').replace('../logo.png','../logo.png?v=20261029c')
+        html=html.replace('../app.js','../app.js?v=20261029d').replace('../style.css','../style.css?v=20261029d').replace('../logo.png','../logo.png?v=20261029d')
         html=html.replace('<title>','<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'self\'; style-src \'self\'; font-src \'self\'; img-src \'self\' blob:; media-src blob:; connect-src \'self\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'"><title>',1)
         (folder/'index.html').write_text(html,encoding='utf-8')
         print(role+': '+str(len(candidates))+' candidates; '+str(len(files))+' encrypted files')

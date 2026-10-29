@@ -90,7 +90,7 @@ render=function(){
 };
 $('login-form').hidden=true;
 $('language').onclick=()=>{lang=lang==='en'?'zh':'en';try{localStorage.setItem('recruitment-language-'+role,lang);}catch{}translate();};
-$('refresh').onclick=load;$('search').oninput=render;$('recruiter').onchange=render;$('status-filter').onchange=render;
+$('search').oninput=render;$('recruiter').onchange=render;$('status-filter').onchange=render;
 function acceptLink(){
  const fragment=location.hash.slice(1);
  if(/^[A-Za-z0-9_-]{43}$/.test(fragment)){activeKey=fragment;try{localStorage.setItem(storageKey,activeKey);}catch{}history.replaceState(null,'',location.pathname+location.search);}
