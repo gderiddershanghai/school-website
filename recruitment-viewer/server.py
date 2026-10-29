@@ -7,7 +7,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import quote, unquote, urlsplit, parse_qs
 HERE = Path(__file__).resolve().parent
-STATUSES = ('New', 'To interview', 'Interviewed', 'Offer', 'Hired', 'On hold', 'Not qualified', 'Rejected')
+STATUSES = ('New', 'Contacted', 'To interview', 'Interviewed', 'Offer', 'Hired', 'On hold', 'Not qualified', 'Rejected')
 LEGACY = {'Reviewing':'New', 'Interview':'To interview', 'Offered':'Offer'}
 JIM_RECRUITER = 'Jim Althans \u00b7 Gold Star'
 MAX_VIDEO = 250 * 1024 * 1024
