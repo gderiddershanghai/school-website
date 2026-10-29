@@ -56,7 +56,7 @@ def build():
             review=reviews.get(c['id'],{});c['status']=status_value(review.get('status','New'))
             for k in ('interviewAt','decisionAt','rejectionReason'): c[k]=review.get(k)
             if role=='staff':
-                for k in ('notes',): c[k]=review.get(k)
+                c['notes']=review.get('notesLocalized') if review.get('notesLocalizedSource')==review.get('notes') and review.get('notesLocalized') else review.get('notes')
             c['recruiterComment']=review.get('recruiterComments',{}).get(role)
             group=c.get('applicationGroup')
             if group:
@@ -78,7 +78,7 @@ def build():
         (folder/'snapshot.bin').write_bytes(encrypted)
         (folder/'index.bin').write_bytes(encrypted)
         html=(ROOT/'recruitment-viewer/index.html').read_text(encoding='utf-8').replace('href="/brand.css"','href="../brand.css"').replace('href="/style.css"','href="../style.css"').replace('src="/app.js"','src="../app.js"').replace('src="/logo.png"','src="../logo.png"').replace('href="/"','href="./"')
-        html=html.replace('../app.js','../app.js?v=20261029d').replace('../style.css','../style.css?v=20261029d').replace('../logo.png','../logo.png?v=20261029d')
+        html=html.replace('../app.js','../app.js?v=20261030a').replace('../style.css','../style.css?v=20261030a').replace('../logo.png','../logo.png?v=20261030a')
         html=html.replace('<title>','<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'self\'; style-src \'self\'; font-src \'self\'; img-src \'self\' blob:; media-src blob:; connect-src \'self\'; object-src \'none\'; base-uri \'none\'; form-action \'none\'"><title>',1)
         (folder/'index.html').write_text(html,encoding='utf-8')
         print(role+': '+str(len(candidates))+' candidates; '+str(len(files))+' encrypted files')

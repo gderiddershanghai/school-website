@@ -28,15 +28,17 @@ function documents(c){
 function video(c){
  $('detail').append(el('p',t('video'),'section-label'));
  if(!c.video){$('detail').append(el('p',t('noVideo')));return;}
- const host=el('div'),button=el('button',lang==='zh'?'播放自我介绍视频':'Play introduction video');
- button.onclick=async()=>{button.disabled=true;button.textContent=lang==='zh'?'正在加载视频…':'Loading video…';try{const url=await assetUrl(c.video.asset);const p=el('video');p.controls=true;p.src=url;const a=el('a',t('download'));a.href=url;a.download=c.video.name;host.replaceChildren(p,a);p.play().catch(()=>{});}catch{button.disabled=false;button.textContent=lang==='zh'?'重试加载视频':'Retry video';}};
- host.append(button);$('detail').append(host);
+ const host=el('div'),button=el('button',lang==='zh'?'播放自我介绍视频':'Play introduction video'),download=el('a',lang==='zh'?'下载视频':'Download video');
+ download.href='#';download.download=c.video.name;download.style.marginLeft='1rem';
+ download.onclick=async e=>{if(download.href.startsWith('blob:'))return;e.preventDefault();download.textContent=lang==='zh'?'正在加载…':'Loading…';try{download.href=await assetUrl(c.video.asset);download.textContent=lang==='zh'?'下载视频':'Download video';download.click();}catch{download.textContent=lang==='zh'?'重试下载':'Retry download';}};
+ button.onclick=async()=>{button.disabled=true;button.textContent=lang==='zh'?'正在加载视频…':'Loading video…';try{const url=await assetUrl(c.video.asset);const p=el('video');p.controls=true;p.playsInline=true;p.src=url;download.href=url;host.replaceChildren(p,download);p.onerror=()=>{host.append(el('p',lang==='zh'?'浏览器无法播放此视频，请下载观看。':'This browser cannot play this video. Download it to watch.'));};p.play().catch(()=>{});}catch{button.disabled=false;button.textContent=lang==='zh'?'重试加载视频':'Retry video';}};
+ host.append(button,download);$('detail').append(host);
 }
 function review(c){
  const box=el('section',null,'review-panel');if(c.interviewAt)box.append(el('p',String(t('interview'))+': '+date(c.interviewAt)));if(c.decisionAt)box.append(el('p',String(t('decision'))+': '+date(c.decisionAt)));
  if(c.recruiterComment)box.append(el('p',value(c.recruiterComment)));
  if(c.rejectionReason)box.append(el('p',value(c.rejectionReason)));
- if(role==='staff'&&c.notes)box.append(el('strong',t('notes')),el('p',c.notes));
+ if(role==='staff'&&c.notes)box.append(el('strong',t('notes')),el('p',value(c.notes)));
  $('detail').append(box);
 }
 function graduationCheck(){}
