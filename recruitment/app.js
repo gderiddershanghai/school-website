@@ -65,6 +65,7 @@ function review(c){
  const box=el('section',null,'review-panel');if(c.interviewAt)box.append(el('p',String(t('interview'))+': '+date(c.interviewAt)));if(c.decisionAt)box.append(el('p',String(t('decision'))+': '+date(c.decisionAt)));
  if(c.recruiterComment)box.append(el('p',value(c.recruiterComment)));
  if(c.rejectionReason)box.append(el('p',value(c.rejectionReason)));
+ if(role==='staff'&&c.gingerRating)box.append(el('strong',(lang==='zh'?'Ginger的评分':'Ginger’s rating')+': '+c.gingerRating.score+'/10'));
  if(role==='staff'&&c.notes)box.append(el('strong',t('notes')),el('p',value(c.notes)));
  $('detail').append(box);
 }
