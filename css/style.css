@@ -15,7 +15,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 
 
-.video-poster{position:absolute;inset:0;background:#173d49}.video-poster img{opacity:.3}.video-label{position:absolute;left:28px;top:24px;color:#fff;font-size:.8rem}.video-label strong{font-size:clamp(1.2rem,2.5vw,2rem)}.video-load{display:none;position:absolute;left:28px;bottom:25px;align-items:center;gap:14px;border:0;background:#f3d45a;color:#173d49;border-radius:999px;padding:12px 20px;font-weight:700;font-size:.9rem}.js .video-load{display:flex}.video-poster:has(iframe) .video-label{display:none}.t-media .video-poster iframe{z-index:2}.video-load:focus-visible{outline-color:#fff}
+.video-poster{position:absolute;inset:0;background:#173d49}.video-load{display:none;position:absolute;left:28px;bottom:25px;align-items:center;gap:14px;border:0;background:#f3d45a;color:#173d49;border-radius:999px;padding:12px 20px;font-weight:700;font-size:.9rem}.js .video-load{display:flex}.t-media .video-poster iframe{z-index:2}.video-load:focus-visible{outline-color:#fff}
 
 /* Shanghai scenes: native swipe/scroll works even without JavaScript. */
 .city-carousel{min-width:0;max-width:100%}
